@@ -28,11 +28,12 @@ export function getPostData(slug: string): Post {
     const fullPath = path.join(process.cwd(), "public", "posts", `${slug}.md`);
     const fileContent = fs.readFileSync(fullPath, "utf-8");
     const { data, content } = matter(fileContent);
-    const { title, date } = data;
+    const { title, date, coverImage } = data;
     return {
         title,
         date,
         slug,
+        coverImage,
         content,
     };
 }
