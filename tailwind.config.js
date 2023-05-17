@@ -14,6 +14,13 @@ module.exports = {
             fontSize: {
                 title: "10rem",
             },
+            colors: {
+                primary: "var(--color-primary)",
+                secondary: "var(--color-secondary)",
+                tertiary: "var(--color-tertiary)",
+                quaternary: "var(--color-quaternary)",
+                quinary: "var(--color-quinary)",
+            },
         },
     },
     plugins: [require("@tailwindcss/typography")],
