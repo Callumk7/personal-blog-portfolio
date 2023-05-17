@@ -1,6 +1,6 @@
 ---
 title: "Old Post"
-slug: "brilliant-but-old-post"
+slug: "brilliant-but-old"
 date: "23/04/2022"
 author: "Callum Kloos"
 ---
