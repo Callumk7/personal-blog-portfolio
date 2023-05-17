@@ -36,3 +36,20 @@ export function getPostData(slug: string): Post {
         content,
     };
 }
+
+// takes a number as an argument, returns that number of most recent posts
+// NOTE this function only works if dates are formatted as DD/MM/YYYY, a process flow
+// could be added to allow YYYY/MM/DD
+export function getRecentPostFrontmatter(count: number) {
+    const postFrontmatter = getAllPostFrontmatter();
+    const sortedPostsByDate = postFrontmatter
+        .map((post) => {
+            return {
+                ...post,
+                dateObject: new Date(post.date.split("/").reverse().join("-")),
+            };
+        })
+        .sort((a, b) => b.dateObject.getTime() - a.dateObject.getTime());
+
+    return sortedPostsByDate.slice(0, count);
+}

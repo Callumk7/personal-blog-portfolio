@@ -1,6 +1,7 @@
 export interface PostFrontmatter {
     title: string;
     date: string;
+    dateObject?: Date;
     slug: string;
 }
 

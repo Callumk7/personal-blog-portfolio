@@ -17,7 +17,7 @@ export default function BlogPage({ params }: { params: { slug: string } }) {
 
     return (
         <div>
-            <ReactMarkdown className="prose">{post.content}</ReactMarkdown>
+            <ReactMarkdown className="prose mx-auto pt-8">{post.content}</ReactMarkdown>
         </div>
     );
 }
