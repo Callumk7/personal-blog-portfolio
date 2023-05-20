@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import { inter, space_grotesk } from "@/style/fonts";
 export const metadata = {
