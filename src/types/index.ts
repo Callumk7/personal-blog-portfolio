@@ -5,6 +5,7 @@ export interface PostFrontmatter {
     tags?: string[];
     date: string;
     dateObject?: Date;
+    category: string;
 }
 
 export interface Post extends PostFrontmatter {

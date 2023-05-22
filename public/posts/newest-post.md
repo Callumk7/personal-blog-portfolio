@@ -1,8 +1,11 @@
 ---
-title: "Newest Post"
-slug: "newest-post"
-date: "15/05/2023"
-author: "Callum Kloos"
+title: Newest Post
+slug: newest-post
+date: 15/05/2023
+author: Callum Kloos
+coverImage: >-
+  https://images.unsplash.com/photo-1684402742742-e10e16c64642?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80
+category: fun
 ---
 
 # Tips for Writing Clean and Readable Code

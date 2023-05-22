@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <nav className="sticky top-0 flex h-20 flex-row items-center justify-end gap-x-4 bg-neutral-200 bg-opacity-30 backdrop-blur-lg">
+        <nav className="sticky top-0 z-20 flex h-20 flex-row items-center justify-end gap-x-4 bg-neutral-200 bg-opacity-30 backdrop-blur-lg">
             <Link href="/" className="px-3 text-neutral-900">
                 Home
             </Link>
