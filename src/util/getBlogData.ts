@@ -12,11 +12,13 @@ export function getAllPostFrontmatter(): PostFrontmatter[] {
         const fullPath = path.join(postDirectory, fileName);
         const fileContent = fs.readFileSync(fullPath, "utf-8");
         const { data } = matter(fileContent);
-        const { title, date, slug } = data;
+        const { title, date, slug, category, coverImage } = data;
         return {
             title,
             date,
             slug,
+            category,
+            coverImage,
         };
     });
     return postFrontmatter;
@@ -28,11 +30,12 @@ export function getPostData(slug: string): Post {
     const fullPath = path.join(process.cwd(), "public", "posts", `${slug}.md`);
     const fileContent = fs.readFileSync(fullPath, "utf-8");
     const { data, content } = matter(fileContent);
-    const { title, date, coverImage } = data;
+    const { title, date, coverImage, category } = data;
     return {
         title,
         date,
         slug,
+        category,
         coverImage,
         content,
     };

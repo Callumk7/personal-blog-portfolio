@@ -1,8 +1,11 @@
 ---
-title: "a new blog post"
-slug: "example-post"
-date: "23/04/2023"
-author: "Callum Kloos"
+title: a new blog post
+slug: example-post
+date: 23/04/2023
+author: Callum Kloos
+coverImage: >-
+  https://images.unsplash.com/photo-1684482570533-b97679dd0705?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80
+category: photography
 ---
 
 # Tips for Writing Clean and Readable Code
