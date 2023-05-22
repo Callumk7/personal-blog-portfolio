@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { PostFrontmatter } from "@/types";
+import Link from "next/link";
 
 export default function PostCard({ post }: { post: PostFrontmatter }) {
     return (
-        <a href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}`}>
             <div className="flex flex-col p-4">
                 <div className="aspect-square w-80 overflow-hidden rounded-md shadow-2xl">
                     <Image
@@ -21,6 +22,6 @@ export default function PostCard({ post }: { post: PostFrontmatter }) {
                     <p className="pr-2 font-sans text-xs text-gray-500">Callum Kloos</p>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 }
