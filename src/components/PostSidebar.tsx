@@ -4,7 +4,7 @@ import Link from "next/link";
 // main sidebar component
 export default function PostSidebar({ posts }: { posts: PostFrontmatter[] }) {
     return (
-        <div className="sticky top-1/3 mx-3 flex h-auto max-w-xs flex-col  space-y-12 p-6">
+        <div className="mx-3 mt-[700px] flex h-auto max-w-xs flex-col space-y-12 p-6">
             {posts.map((post) => {
                 return <PostSideBarEntry post={post} key={post.slug} />;
             })}
