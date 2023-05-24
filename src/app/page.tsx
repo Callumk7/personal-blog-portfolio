@@ -1,4 +1,4 @@
-import InlinePostCard from "@/components/InlinePostCard";
+import InlinePostCard from "@/components/posts/InlinePostCard";
 import { getAllPostFrontmatter } from "@/util/getBlogData";
 
 export default function Home() {
@@ -7,7 +7,12 @@ export default function Home() {
     return (
         <div className="h-screen">
             <section className="flex h-screen items-center">
-                <h1 className="p-6 font-grotesk text-title">Nice to meet you, I&apos;m Callum!</h1>
+                <h1 className="p-6 font-grotesk text-title leading-none">
+                    Nice to meet you, I&apos;m{" "}
+                    <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text font-black leading-none text-transparent">
+                        Callum!
+                    </span>
+                </h1>
             </section>
 
             <section className="flex h-screen flex-col content-center justify-items-start">
