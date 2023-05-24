@@ -8,7 +8,7 @@ export default function InlinePostCard({ post }: { post: PostFrontmatter }) {
                 <h2 className="pb-2 font-grotesk text-3xl font-medium">{post.title}</h2>
                 <div className="flex flex-row space-x-3">
                     <p className="text-xs text-gray-700">{post.date}</p>
-                    <p className="rounded-full bg-green-500 p-1 text-xs text-green-800">
+                    <p className="text-xs text-secondary">
                         {post.category}
                     </p>
                 </div>

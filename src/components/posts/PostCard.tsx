@@ -5,13 +5,13 @@ import Link from "next/link";
 export default function PostCard({ post }: { post: PostFrontmatter }) {
     return (
         <Link href={`/blog/${post.slug}`}>
-            <div className="flex flex-col p-4">
+            <div className="flex flex-col space-x-4 py-4">
                 <div className="aspect-square w-80 overflow-hidden rounded-md shadow-2xl">
                     <Image
                         src={post.coverImage!}
                         alt={post.title}
-                        width={400}
-                        height={300}
+                        width={800}
+                        height={600}
                         className="h-full object-cover"
                     />
                 </div>
