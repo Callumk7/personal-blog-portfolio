@@ -1,4 +1,5 @@
 import PostCard from "@/components/posts/PostCard";
+import RecentPosts from "@/components/posts/RecentPosts";
 import { getRecentPostFrontmatter } from "@/util/getBlogData";
 
 export default async function BlogPage() {
@@ -14,11 +15,7 @@ export default async function BlogPage() {
                 </p>
             </section>
             <section className="mx-auto">
-                <div className="flex flex-auto flex-wrap content-start justify-start">
-                    {posts.map((post) => {
-                        return <PostCard key={post.slug} post={post} />;
-                    })}
-                </div>
+                <RecentPosts posts={posts} countWithImages={5} />
             </section>
         </main>
     );
