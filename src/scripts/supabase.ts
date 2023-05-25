@@ -4,8 +4,7 @@ import { posts } from "../db/schema";
 import { create } from "domain";
 import { eq } from "drizzle-orm";
 
-const connectionString =
-    "postgresql://postgres:LtFNlqeKr6kS8MOA@db.pcuqfewnlfrjrmivvsnx.supabase.co:5432/postgres";
+const connectionString = `postgresql://postgres:${process.env.PF_DB_PASS}@db.pcuqfewnlfrjrmivvsnx.supabase.co:5432/postgres`;
 const client = postgres(connectionString);
 const db = drizzle(client);
 
@@ -27,4 +26,4 @@ async function getPost(id: number) {
     return await db.select().from(posts).where(eq(posts.id, id));
 }
 
-createPost
+createPost;
