@@ -1,6 +1,7 @@
 import PostCard from "@/components/posts/PostCard";
 import RecentPosts from "@/components/posts/RecentPosts";
-import { getRecentPostFrontmatter } from "@/util/getBlogData";
+import { getRecentPostFrontmatter } from "@/util/get-blog-data";
+
 
 export default async function BlogPage() {
     const posts = getRecentPostFrontmatter(8);

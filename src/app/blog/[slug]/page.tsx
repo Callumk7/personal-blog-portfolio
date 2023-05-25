@@ -1,4 +1,4 @@
-import { getAllPostFrontmatter, getPostData } from "@/util/getBlogData";
+import { getAllPostFrontmatter, getPostData } from "@/util/get-blog-data";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 

@@ -1,5 +1,5 @@
 import InlinePostCard from "@/components/posts/InlinePostCard";
-import { getAllPostFrontmatter } from "@/util/getBlogData";
+import { getAllPostFrontmatter } from "@/util/get-blog-data";
 
 export default function Home() {
     const posts = getAllPostFrontmatter();
