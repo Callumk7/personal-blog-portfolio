@@ -8,7 +8,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["var(--font-inter)"],
+                sans: ["var(--font-figtree)"],
                 grotesk: ["var(--font-space-grotesk)"],
             },
             fontSize: {
@@ -20,6 +20,16 @@ module.exports = {
                 tertiary: "var(--color-tertiary)",
                 quaternary: "var(--color-quaternary)",
                 quinary: "var(--color-quinary)",
+            },
+            keyframes: {
+                "background-rotate": {
+                    "0%": { transform: "rotate(3deg)" },
+                    "50%": { transform: "rotate(179deg)" },
+                    "100%": { transform: "rotate(-3deg)" },
+                },
+            },
+            animation: {
+                "background-gradient": "background-rotate 14s ease infinite",
             },
         },
     },

@@ -11,8 +11,8 @@ export default function RecentPosts({
 }) {
     const postsWithImages = posts.splice(0, countWithImages);
     return (
-        <div className="flex flex-col">
-            <div className="flex">
+        <div className="flex flex-col space-y-5">
+            <div className="flex flex-wrap">
                 {postsWithImages.map((post) => (
                     <PostCard key={post.slug} post={post} />
                 ))}

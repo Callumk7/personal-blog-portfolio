@@ -3,7 +3,7 @@ title: "10 Easy and Healthy Breakfast Ideas"
 description: "Start your day off right with these delicious and nutritious breakfast ideas."
 tags: ["food", "health"]
 date: "01/06/2023"
-coverImage: "https://images.unsplash.com/photo-1543339303-2e6e6d6a9c8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJlYWtmYXN0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+coverImage: "https://images.unsplash.com/photo-1684997883834-f97052635670?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
 ---
 
 # 10 Easy and Healthy Breakfast Ideas

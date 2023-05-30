@@ -3,7 +3,7 @@ title: "The Benefits of Meditation for Mental Health"
 description: "Discover the benefits of meditation for mental health and learn how to get started."
 tags: ["meditation", "mental health"]
 date: "15/06/2023"
-coverImage: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWVkaXRhdGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+coverImage: "https://images.unsplash.com/photo-1684997883834-f97052635670?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
 ---
 
 # The Benefits of Meditation for Mental Health

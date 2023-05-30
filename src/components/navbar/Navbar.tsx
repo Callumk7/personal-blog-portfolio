@@ -14,7 +14,7 @@ export default function Navbar() {
     return (
         <header className="sticky top-0 z-20 mb-10 bg-neutral-200 bg-opacity-30 py-8 backdrop-blur-lg">
             <nav className="flex items-center justify-between gap-x-6">
-                <ul className="hidden justify-between gap-x-6 lg:flex">
+                <ul className="hidden justify-between gap-x-6 md:flex">
                     {items.map((item) => (
                         <li key={item.name}>
                             <Link
@@ -26,7 +26,7 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <Disclosure as="nav" className="lg:hidden">
+                <Disclosure as="nav" className="md:hidden">
                     <Disclosure.Button className="px-3 text-neutral-900 hover:text-primary">
                         <svg
                             width="24"
