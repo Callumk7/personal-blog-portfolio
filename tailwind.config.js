@@ -12,7 +12,7 @@ module.exports = {
                 grotesk: ["var(--font-space-grotesk)"],
             },
             fontSize: {
-                title: "10rem",
+                title: "8rem",
             },
             colors: {
                 primary: "var(--color-primary)",
@@ -27,9 +27,15 @@ module.exports = {
                     "50%": { transform: "rotate(179deg)" },
                     "100%": { transform: "rotate(-3deg)" },
                 },
+                "color-pulse": {
+                    "0%": { "background-color": "var(--color-secondary)" },
+                    "50%": { "background-color": "blue" },
+                    "100%": { "background-color": "yellow" },
+                },
             },
             animation: {
                 "background-gradient": "background-rotate 14s ease infinite",
+                "color-pulse": "color-pulse 10s ease-in-out infinite alternate",
             },
         },
     },

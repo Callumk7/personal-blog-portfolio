@@ -15,9 +15,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body>
                 <Navbar />
                 {children}
-                <div className="fixed top-0 -z-10 h-full w-full bg-gray-50 bg-opacity-50 backdrop-blur-lg"></div>
+                <div className="fixed top-0 -z-10 h-full w-full bg-white bg-opacity-70 backdrop-blur-lg"></div>
+                <div className="absolute left-16 top-20 -z-20 h-72 w-72 animate-pulse rounded-full bg-tertiary"></div>
+                <div className="absolute left-80 top-[363px] -z-20 h-80 w-80 scale-[3] animate-pulse rounded-full bg-primary blur-lg"></div>
                 <div className="fixed inset-0 -z-30 scale-[3] transform">
-                    <div className="absolute inset-0 animate-background-gradient bg-gradient-to-b from-primary to-white"></div>
+                    <div className="absolute inset-0 animate-background-gradient bg-gradient-to-b from-primary to-quinary"></div>
                 </div>
             </body>
         </html>
