@@ -1,13 +1,22 @@
 export interface PostFrontmatter {
     title: string;
     slug: string;
-    coverImage?: string;
-    tags?: string[];
     date: string;
     dateObject?: Date;
-    category: string;
+    coverImage?: string;
+    description?: string;
+    tags?: string[];
 }
 
 export interface Post extends PostFrontmatter {
+    content: string;
+}
+
+export interface Upload {
+    title: string;
+    date: string;
+    coverImage?: string;
+    description?: string;
+    tags?: string[];
     content: string;
 }

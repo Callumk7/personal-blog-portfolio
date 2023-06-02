@@ -1,4 +1,4 @@
-import { getAllPostFrontmatter, getPostData } from "@/util/getBlogData";
+import { getAllPostFrontmatter, getPostData } from "@/util/posts";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
@@ -17,19 +17,19 @@ export default async function BlogPage({ params }: { params: { slug: string } })
     const post = getPostData(params.slug);
 
     return (
-        <div>
-            <div className="z-1 absolute left-0 top-0 h-1/2 w-screen items-center overflow-hidden">
+        <div className="px-5">
+            <div className="flex flex-col space-y-10">
                 <Image
                     src={post.coverImage!}
                     alt={post.title}
                     width={1080}
                     height={720}
-                    className="w-screen"
+                    className="max-w-md"
                 />
+                <ReactMarkdown className="prose prose-headings:font-grotesk">
+                    {post.content}
+                </ReactMarkdown>
             </div>
-            <ReactMarkdown className="prose z-10 mr-10 mt-[600px] max-w-screen-lg place-self-start pt-8 prose-headings:font-grotesk">
-                {post.content}
-            </ReactMarkdown>
         </div>
     );
 }

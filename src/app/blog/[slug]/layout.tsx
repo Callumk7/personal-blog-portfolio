@@ -1,5 +1,5 @@
 import PostSidebar from "@/components/PostSidebar";
-import { getRecentPostFrontmatter } from "@/util/getBlogData";
+import { getRecentPostFrontmatter } from "@/util/posts";
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
     const posts = getRecentPostFrontmatter(3);
