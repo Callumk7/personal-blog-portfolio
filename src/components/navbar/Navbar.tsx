@@ -12,22 +12,25 @@ export default function Navbar() {
     ];
 
     return (
-        <header className="sticky top-0 z-20 mb-10 bg-neutral-200 bg-opacity-30 py-8 backdrop-blur-lg">
+        <header className="fixed top-0 z-20 w-full bg-zinc-200 bg-opacity-30 py-8 backdrop-blur-lg">
             <nav className="flex items-center justify-between gap-x-6">
+                {/*Medium and above*/}
                 <ul className="hidden justify-between gap-x-6 md:flex">
                     {items.map((item) => (
                         <li key={item.name}>
                             <Link
                                 href={item.link}
-                                className="px-3 text-neutral-900 hover:text-primary"
+                                className="px-3 text-zinc-900 hover:text-primary"
                             >
                                 {item.name}
                             </Link>
                         </li>
                     ))}
                 </ul>
+
+                {/* small */}
                 <Disclosure as="nav" className="md:hidden">
-                    <Disclosure.Button className="px-3 text-neutral-900 hover:text-primary">
+                    <Disclosure.Button className="px-3 text-zinc-900 hover:text-primary">
                         <svg
                             width="24"
                             height="24"
@@ -45,7 +48,7 @@ export default function Navbar() {
                             <Link
                                 key={item.name}
                                 href={item.link}
-                                className="px-3 text-neutral-900 hover:text-primary"
+                                className="px-3 text-zinc-900 hover:text-primary"
                             >
                                 {item.name}
                             </Link>
