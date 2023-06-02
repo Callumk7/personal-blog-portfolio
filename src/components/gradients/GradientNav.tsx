@@ -1,7 +1,7 @@
 import Link from "next/link";
 import "./GradientNavStyle.css";
 
-export default function GradientNav({ height }: { height: number }) {
+export default function GradientNav() {
 	const items = [
 		{ name: "Home", link: "/" },
 		{ name: "About", link: "/about" },
@@ -21,7 +21,7 @@ export default function GradientNav({ height }: { height: number }) {
 					))}
 				</ul>
 			</nav>
-			<div className={`relative top-0 h-${height} w-full overflow-hidden`}>
+			<div className={`relative top-0 h-24 w-full overflow-hidden`}>
 				<div className="absolute left-0 top-0 z-30 h-full w-full bg-zinc-100 bg-opacity-50 backdrop-blur-2xl"></div>
 				<div className="absolute left-0 top-0 z-10 h-full w-full animate-gradient-fade bg-gradient-to-br from-primary to-secondary"></div>
 				<div className="absolute left-0 top-0 z-10 h-full w-full animate-gradient-fade-reverse bg-gradient-to-t from-tertiary to-quinary"></div>
