@@ -1,18 +1,22 @@
-import { getAllPostFrontmatter } from "@/util/posts";
 
 export default function Home() {
-	const posts = getAllPostFrontmatter();
-
 	return (
-		<section>
-			<div className="relative h-full w-full">
-				<div className="fixed top-0 -z-10 h-screen w-full bg-zinc-100 bg-opacity-30 backdrop-blur-2xl">
-					Glass
-				</div>
-				<div className="relative -left-28 -z-20 h-screen w-1/2 rounded-full bg-primary">
-					Glow
-				</div>
-			</div>
-		</section>
+		<div>
+			<section>
+				<h1 className="font-grotesk text-title">
+					Hey, I&apos;m Callum! Welcome to my corner of the internet
+				</h1>
+			</section>
+			<section>
+				<p>
+					Labore aute exercitation pariatur eu do do culpa nulla ex sint mollit
+					exercitation ipsum. In sunt ipsum pariatur aute quis amet magna. Est amet qui
+					proident sit Lorem esse tempor amet. Sint mollit adipisicing veniam incididunt
+					consectetur in aute Lorem veniam in laborum laboris minim laboris laborum. Ea
+					sit ad voluptate labore velit veniam esse consequat nisi eiusmod magna excepteur
+					do. Tempor veniam ullamco ea deserunt qui ea aute enim nisi sint et nostrud do.
+				</p>
+			</section>
+		</div>
 	);
 }
