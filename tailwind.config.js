@@ -24,7 +24,7 @@ module.exports = {
 			keyframes: {
 				"gradient-pulse": {
 					from: { opacity: 0.1 },
-					to: { opacity: 1 },
+					to: { opacity: 0.8 },
 				},
 			},
 			animation: {

@@ -7,7 +7,8 @@
 		"turbo": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"upload": "ts-node src/util/posting.ts"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.14",
