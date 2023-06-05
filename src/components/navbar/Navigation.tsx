@@ -6,7 +6,6 @@ export default function Navigation() {
 	const items = [
 		{ name: "Home", link: "/" },
 		{ name: "Blog", link: "/blog" },
-		{ name: "Projects", link: "/projects" },
 	];
 
 	return (
@@ -17,7 +16,7 @@ export default function Navigation() {
 						<li key={item.name}>
 							<Link
 								href={item.link}
-								className="px-3 text-zinc-900 hover:font-bold hover:text-quinary"
+								className="px-3 text-zinc-900 transition ease-in-out  hover:text-quinary"
 							>
 								{item.name}
 							</Link>
@@ -52,7 +51,7 @@ export default function Navigation() {
 					</Disclosure.Panel>
 				</Disclosure>
 				<div className="flex gap-x-6">
-					<div className="px-3 hover:text-primary">
+					<div className="px-3 hover:text-quinary">
 						<svg
 							width="24"
 							height="24"
@@ -67,7 +66,7 @@ export default function Navigation() {
 							</a>
 						</svg>
 					</div>
-					<div className="pl-3 pr-6 hover:text-primary">
+					<div className="pl-3 pr-6 hover:text-quinary">
 						<svg
 							width="24"
 							height="24"
