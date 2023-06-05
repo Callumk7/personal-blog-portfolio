@@ -4,14 +4,18 @@ import Link from "next/link";
 
 export default function PostCard({ post }: { post: PostFrontmatter }) {
 	return (
-		<Link href={`/blog/${post.slug}`}>
-			<div className="flex flex-col">
-				<h2 className="text-l font-sans font-medium">{post.title}</h2>
-				<div className="overflow-hidden rounded-md">
-					<Image src={post.coverImage!} alt={post.title} width={800} height={600} />
-				</div>
-				<p>{post.description!}</p>
+		<div className="flex flex-col px-2 py-5">
+			<p className="text-xs text-secondary">{post.date}</p>
+			<div className="flex flex-row space-x-4 text-xs text-secondary">
+				{post.tags!.map((tag) => (
+					<p key={tag}>{tag}</p>
+				))}
 			</div>
-		</Link>
+			<h2 className="py-3 font-grotesk text-xl font-medium">{post.title}</h2>
+			<p className="pb-2 font-sans">{post.description}</p>
+			<Link href={`/blog/${post.slug}`} className="font-sans text-quinary">
+				Continue Reading..
+			</Link>
+		</div>
 	);
 }
