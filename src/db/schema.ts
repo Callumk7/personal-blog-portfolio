@@ -29,4 +29,5 @@ export const taggedPosts = pgTable(
 
 // export generated types
 export type DBPost = InferModel<typeof posts>;
+export type DBNewPost = InferModel<typeof posts, "insert">;
 export type DBTag = InferModel<typeof tags>;
