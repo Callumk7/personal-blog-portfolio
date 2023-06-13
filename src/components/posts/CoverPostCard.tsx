@@ -12,8 +12,8 @@ export default function CoverPostCard({ post }: { post: PostFrontmatter }) {
 				))}
 			</div>
 			<div className="relative max-h-96 overflow-hidden rounded-md">
-				<div className="absolute -right-16  bottom-7 z-20 h-full w-2/3 rounded-full bg-quinary opacity-40 blur-2xl"></div>
-				<div className="absolute z-10 h-full w-full bg-primary opacity-50  backdrop-saturate-50"></div>
+				<div className="absolute -right-16  bottom-7 z-20 h-full w-2/3 rounded-full bg-gradient-to-b from-quinary to-zinc-100 opacity-40 blur-2xl"></div>
+				<div className="absolute z-10 h-full w-full bg-gradient-to-bl from-primary to-secondary opacity-50  backdrop-saturate-50"></div>
 				<Image
 					src={post.coverImage!}
 					alt="Post cover image"

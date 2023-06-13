@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			className={`${inter.variable} ${space_grotesk.variable} ${figtree.variable}`}
 		>
 			<body className="bg-zinc-100">
-                <Navigation />
+				<Navigation />
 				<div className="mt-32">{children}</div>
 			</body>
 		</html>
