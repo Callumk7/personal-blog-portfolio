@@ -10,6 +10,7 @@ module.exports = {
 			fontFamily: {
 				sans: ["var(--font-figtree)"],
 				grotesk: ["var(--font-space-grotesk)"],
+				syne: ["var(--font-syne)"],
 			},
 			fontSize: {
 				title: "8rem",

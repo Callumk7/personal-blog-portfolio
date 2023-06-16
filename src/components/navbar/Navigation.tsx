@@ -9,14 +9,14 @@ export default function Navigation() {
 	];
 
 	return (
-		<header className="sticky top-0 border-b-deluge-400 border-b-2 z-30 w-full bg-zinc-400 bg-opacity-30 px-4 py-4 backdrop-blur-2xl">
+		<header className="sticky top-0 z-30 w-full border-b-2 border-black bg-zinc-400 bg-opacity-30 px-4 py-4 backdrop-blur-2xl">
 			<nav className="flex items-center justify-between gap-x-6">
 				<ul className="hidden justify-between gap-x-6 md:flex">
 					{items.map((item) => (
 						<li key={item.name}>
 							<Link
 								href={item.link}
-								className="px-3 text-zinc-900 transition ease-in-out  hover:text-quinary"
+								className="hover:text-quinary px-3 text-zinc-900 transition  ease-in-out"
 							>
 								{item.name}
 							</Link>
@@ -51,7 +51,7 @@ export default function Navigation() {
 					</Disclosure.Panel>
 				</Disclosure>
 				<div className="flex gap-x-6">
-					<div className="px-3 hover:text-quinary">
+					<div className="hover:text-quinary px-3">
 						<svg
 							width="24"
 							height="24"
@@ -66,7 +66,7 @@ export default function Navigation() {
 							</a>
 						</svg>
 					</div>
-					<div className="pl-3 pr-6 hover:text-quinary">
+					<div className="hover:text-quinary pl-3 pr-6">
 						<svg
 							width="24"
 							height="24"
