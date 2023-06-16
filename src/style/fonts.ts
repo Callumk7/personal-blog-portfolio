@@ -1,18 +1,30 @@
-import { Figtree, Inter, Space_Grotesk } from "next/font/google";
+import { Figtree, Inconsolata, Inter, Karla, Space_Grotesk } from "next/font/google";
 export const inter = Inter({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-inter",
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-inter",
 });
 
 export const space_grotesk = Space_Grotesk({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-space-grotesk",
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-space-grotesk",
 });
 
 export const figtree = Figtree({
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-figtree",
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-figtree",
+});
+
+export const karla = Karla({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-karla",
+});
+
+export const inconsolata = Inconsolata({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-inconsolata",
 });

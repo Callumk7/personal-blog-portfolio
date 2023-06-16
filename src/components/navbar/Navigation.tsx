@@ -9,7 +9,7 @@ export default function Navigation() {
 	];
 
 	return (
-		<header className="relative top-0 z-30 w-full px-4 pt-4">
+		<header className="sticky top-0 border-b-deluge-400 border-b-2 z-30 w-full bg-zinc-400 bg-opacity-30 px-4 py-4 backdrop-blur-2xl">
 			<nav className="flex items-center justify-between gap-x-6">
 				<ul className="hidden justify-between gap-x-6 md:flex">
 					{items.map((item) => (
