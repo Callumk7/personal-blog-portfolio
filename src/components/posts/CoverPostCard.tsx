@@ -4,23 +4,12 @@ import Link from "next/link";
 
 export default function CoverPostCard({ post }: { post: PostFrontmatter }) {
 	return (
-		<div className="flex flex-col px-2 py-5">
+		<div className="flex border-2 border-black flex-col px-2 py-5">
 			<p className="text-xs text-secondary">{post.date}</p>
 			<div className="flex flex-row space-x-4 pb-2 text-xs text-secondary">
 				{post.tags!.map((tag) => (
 					<p key={tag}>{tag}</p>
 				))}
-			</div>
-			<div className="relative max-h-96 overflow-hidden rounded-md">
-				<div className="absolute -right-16  bottom-7 z-20 h-full w-2/3 rounded-full bg-gradient-to-b from-quinary to-zinc-100 opacity-40 blur-2xl"></div>
-				<div className="absolute z-10 h-full w-full bg-gradient-to-bl from-primary to-secondary opacity-50  backdrop-saturate-50"></div>
-				<Image
-					src={post.coverImage!}
-					alt="Post cover image"
-					width={5000}
-					height={4000}
-					className="bg-cover bg-center grayscale"
-				/>
 			</div>
 			<h2 className="py-3 font-grotesk text-xl font-medium">{post.title}</h2>
 			<p className="pb-2 font-sans">{post.description}</p>
