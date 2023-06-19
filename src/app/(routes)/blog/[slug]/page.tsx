@@ -17,14 +17,18 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 	const post = getPostData(params.slug);
 
 	return (
-		<div className="mx-auto mt-80 w-4/5 lg:w-1/2">
+		<div className="mt-80">
 			<div className="flex flex-col pb-20">
-				<h1 className="border-b-2 border-black pb-8 font-syne text-4xl font-bold text-zinc-900">
-					{post.title}
-				</h1>
-				<ReactMarkdown className="prose prose-zinc max-w-none border-r-2 border-black pr-6 pt-8 prose-headings:font-syne">
-					{post.content}
-				</ReactMarkdown>
+				<div className="border-b-2 border-black">
+					<h1 className="mx-auto w-4/5 pb-8 font-syne text-4xl font-bold text-zinc-900 lg:w-1/2">
+						{post.title}
+					</h1>
+				</div>
+				<div className="border-r-2 border-black">
+					<ReactMarkdown className="prose prose-zinc mx-auto w-4/5 max-w-none pr-6 pt-8 prose-headings:font-syne lg:w-1/2">
+						{post.content}
+					</ReactMarkdown>
+				</div>
 			</div>
 		</div>
 	);
