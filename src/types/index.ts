@@ -5,7 +5,7 @@ export interface PostFrontmatter {
 	dateObject: Date;
 	coverImage: string;
 	description: string;
-	tags?: string[];
+    category: string;
 }
 
 export interface Post extends PostFrontmatter {
@@ -17,6 +17,6 @@ export interface Upload {
 	date: string;
 	coverImage: string;
 	description: string;
-	tags?: string[];
 	content: string;
+    category: string;
 }
