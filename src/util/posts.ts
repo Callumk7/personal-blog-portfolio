@@ -12,7 +12,7 @@ export function getAllPostFrontmatter(): PostFrontmatter[] {
 		const fullPath = path.join(postDirectory, fileName);
 		const fileContent = fs.readFileSync(fullPath, "utf-8");
 		const { data } = matter(fileContent);
-		const { title, date, dateObject, slug, coverImage, description, tags } = data;
+		const { title, date, dateObject, slug, coverImage, description, category } = data;
 		return {
 			title,
 			date,
@@ -20,7 +20,7 @@ export function getAllPostFrontmatter(): PostFrontmatter[] {
 			description,
 			dateObject,
 			coverImage,
-			tags,
+			category,
 		};
 	});
 	return postFrontmatter;
@@ -32,7 +32,7 @@ export function getPostData(slug: string): Post {
 	const fullPath = path.join(process.cwd(), "public", "posts", `${slug}.md`);
 	const fileContent = fs.readFileSync(fullPath, "utf-8");
 	const { data, content } = matter(fileContent);
-	const { title, date, dateObject, coverImage, description, tags } = data;
+	const { title, date, dateObject, coverImage, description, category } = data;
 	return {
 		title,
 		date,
@@ -41,7 +41,7 @@ export function getPostData(slug: string): Post {
 		coverImage,
 		content,
 		description,
-		tags,
+		category,
 	};
 }
 
