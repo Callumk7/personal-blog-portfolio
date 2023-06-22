@@ -9,7 +9,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"generate": "drizzle-kit generate:pg",
-		"upload": "ts-node src/util/posting.ts"
+		"upload": "ts-node src/scripts/posting.ts"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.14",
