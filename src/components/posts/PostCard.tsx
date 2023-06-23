@@ -1,6 +1,5 @@
 import { PostFrontmatter } from "@/types";
 import Link from "next/link";
-import Tag from "../shared/tags";
 
 export default function PostCard({ post }: { post: PostFrontmatter }) {
   return (

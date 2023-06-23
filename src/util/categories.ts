@@ -1,15 +1,11 @@
 import path from "path";
 import fs from "fs";
-
-interface Category {
-	id: number;
-	name: string;
-}
+import { Category } from "@/types";
 
 export function getCategories(): Category[] {
-	const filePath = path.join(process.cwd(), "public", "data", "categories.json");
+  const filePath = path.join(process.cwd(), "public", "data", "categories.json");
 
-	const fileContents = fs.readFileSync(filePath, "utf-8");
+  const fileContents = fs.readFileSync(filePath, "utf-8");
 
-	return JSON.parse(fileContents);
+  return JSON.parse(fileContents);
 }

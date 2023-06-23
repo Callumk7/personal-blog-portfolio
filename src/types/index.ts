@@ -20,3 +20,8 @@ export interface Upload {
   content: string;
   category: string;
 }
+
+export interface Category {
+  id: number;
+  name: string;
+}
