@@ -1,9 +1,5 @@
 [
   {
-    "id": 0,
-    "name": "all"
-  },
-  {
     "id": 1,
     "name": "programming"
   },
@@ -13,6 +9,6 @@
   },
   {
     "id": 3,
-    "name": "lifestyle"
+    "name": "health"
   }
 ]
