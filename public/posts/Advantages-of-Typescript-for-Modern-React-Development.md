@@ -7,7 +7,7 @@ description: >-
   TypeScript is a popular programming language that has gained significant
   traction among developers, especially those working on modern web
   applications.
-tags: programming
+category: programming
 dateObject: 2023-06-20T23:00:00.000Z
 slug: Advantages-of-Typescript-for-Modern-React-Development
 ---
@@ -21,53 +21,53 @@ component design.
 
 1. ## What is TypeScript?
 
-    TypeScript is a superset of JavaScript that adds optional static typing,
-    classes, and interfaces to the language. It was developed by Microsoft and is
-    now an open-source project with a large and growing community. TypeScript is
-    designed to improve the development experience by providing better tooling,
-    catch more errors at compile-time, and make code easier to read and maintain.
+   TypeScript is a superset of JavaScript that adds optional static typing,
+   classes, and interfaces to the language. It was developed by Microsoft and is
+   now an open-source project with a large and growing community. TypeScript is
+   designed to improve the development experience by providing better tooling,
+   catch more errors at compile-time, and make code easier to read and maintain.
 
-    ### Advantages of TypeScript for Modern React Development
+   ### Advantages of TypeScript for Modern React Development
 
-    - Better Developer Experience
-    - Improved Code Quality
-    - Better Component Design
-    - Improved Collaboration
+   - Better Developer Experience
+   - Improved Code Quality
+   - Better Component Design
+   - Improved Collaboration
 
 2. ### Better Developer Experience
 
-    TypeScript provides better tooling for developers, including code completion,
-    refactoring, and error detection. It also provides better documentation and
-    allows developers to write self-documenting code. TypeScript's type system
-    makes it easier to understand the shape of data and how it is used throughout
-    the application.
+   TypeScript provides better tooling for developers, including code completion,
+   refactoring, and error detection. It also provides better documentation and
+   allows developers to write self-documenting code. TypeScript's type system
+   makes it easier to understand the shape of data and how it is used throughout
+   the application.
 
 3. ### Improved Code Quality
 
-    TypeScript's static type system allows developers to catch errors at
-    compile-time rather than runtime, which can save time and reduce the
-    likelihood of bugs in production. It also makes code easier to read and
-    maintain by providing better documentation and enforcing stricter coding
-    standards.
+   TypeScript's static type system allows developers to catch errors at
+   compile-time rather than runtime, which can save time and reduce the
+   likelihood of bugs in production. It also makes code easier to read and
+   maintain by providing better documentation and enforcing stricter coding
+   standards.
 
 4. ### Better Component Design
 
-    > TypeScript allows developers to define interfaces for their components,
-    > which makes it easier to understand how components are used and what data
-    > they require. It also makes it easier to reuse components across different
-    > parts of the application.
+   > TypeScript allows developers to define interfaces for their components,
+   > which makes it easier to understand how components are used and what data
+   > they require. It also makes it easier to reuse components across different
+   > parts of the application.
 
-    TypeScript's type system also makes it easier to catch errors related to
-    passing the wrong props or using the wrong data types in components. This can
-    save time and reduce the likelihood of bugs in production.
+   TypeScript's type system also makes it easier to catch errors related to
+   passing the wrong props or using the wrong data types in components. This can
+   save time and reduce the likelihood of bugs in production.
 
 5. ### Improved Collaboration
 
-    TypeScript's type system makes it easier for teams to collaborate on code by
-    providing better documentation and enforcing stricter coding standards. It
-    also makes it easier to understand the shape of data and how it is used
-    throughout the application, which can reduce miscommunications between team
-    members.
+   TypeScript's type system makes it easier for teams to collaborate on code by
+   providing better documentation and enforcing stricter coding standards. It
+   also makes it easier to understand the shape of data and how it is used
+   throughout the application, which can reduce miscommunications between team
+   members.
 
 Here is an example of inline code block:
 `const myVariable: string = "Hello, world!";`
@@ -76,17 +76,17 @@ Here is an example of a code block:
 
 ```typescript
 interface Props {
-	name: string;
-	age: number;
+  name: string;
+  age: number;
 }
 
 function MyComponent(props: Props) {
-	return (
-		<div>
-			<h1>{props.name}</h1>
-			<p>{props.age}</p>
-		</div>
-	);
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <p>{props.age}</p>
+    </div>
+  );
 }
 ```
 

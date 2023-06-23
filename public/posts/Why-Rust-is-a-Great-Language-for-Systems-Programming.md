@@ -2,11 +2,11 @@
 title: Why Rust is a Great Language for Systems Programming
 date: 21/06/2023
 coverImage: >-
-    https://images.unsplash.com/photo-1583147247730-0ffa2ee86d72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cnVzdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60
+  https://images.unsplash.com/photo-1583147247730-0ffa2ee86d72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cnVzdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60
 description: >-
-    Rust is a systems programming language that has gained a lot popularity in
-    recent years. Now is the time for it to take over the world
-tags: programming
+  Rust is a systems programming language that has gained a lot popularity in
+  recent years. Now is the time for it to take over the world
+category: programming
 dateObject: 2023-06-20T23:00:00.000Z
 slug: Why-Rust-is-a-Great-Language-for-Systems-Programming
 ---

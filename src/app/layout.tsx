@@ -13,7 +13,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			className={`${inter.variable} ${space_grotesk.variable} ${figtree.variable} ${karla.variable} ${inconsolata.variable} ${syne.variable}`}
 		>
 			<body className="bg-neutral-300">
-                {children}
+				<Navigation />
+				{children}
 			</body>
 		</html>
 	);
