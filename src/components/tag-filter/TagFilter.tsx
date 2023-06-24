@@ -20,7 +20,7 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
           </li>
         ) : (
           <li>
-            <Link href="blog">all</Link>
+            <Link href="/blog">all</Link>
           </li>
         )}
         {categories.map((category) => {

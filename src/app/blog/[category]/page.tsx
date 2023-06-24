@@ -1,10 +1,10 @@
 import PostCardView from "@/components/posts/PostCardView";
 import TagFilter from "@/components/tag-filter/TagFilter";
-import { getCategories } from "@/util/categories";
+import { getAllCategories } from "@/lib/categories";
 import { getPostsByCategory } from "@/util/posts";
 
 export async function generateStaticParams() {
-  const categories = getCategories();
+  const categories = await getAllCategories();
   return categories.map((category) => ({
     category: category.name,
   }));
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 
 export default async function BlogPage({ params }: { params: { category: string } }) {
   const posts = getPostsByCategory(params.category);
-  const categories = getCategories();
+  const categories = await getAllCategories();
 
   return (
     <main className=" mb-24 px-8 md:w-2/3 lg:w-3/4 xl:w-2/3">

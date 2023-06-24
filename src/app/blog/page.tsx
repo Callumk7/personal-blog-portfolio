@@ -1,11 +1,11 @@
 import { getRecentPostFrontmatter } from "@/util/posts";
-import { getCategories } from "@/util/categories";
 import TagFilter from "@/components/tag-filter/TagFilter";
+import { getAllCategories } from "@/lib/categories";
 import PostCardView from "@/components/posts/PostCardView";
 
 export default async function BlogPage() {
   const posts = getRecentPostFrontmatter(8);
-  const categories = getCategories();
+  const categories = await getAllCategories();
 
   return (
     <main className=" mb-24 px-8 md:w-2/3 lg:w-3/4 xl:w-2/3">
