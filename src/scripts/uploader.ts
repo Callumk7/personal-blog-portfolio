@@ -13,46 +13,53 @@ const rl = readline.createInterface({
 const fileDirectory = path.join(process.cwd(), "uploads");
 
 async function main() {
-	// find the files to upload
 	let files: string[];
-	rl.question("Select an option:\n1. Upload all files\n2. Select file\n", (option: string) => {
-		if (option === "1") {
-			// upload all files
-			console.log("uploading all files...");
-			files.push("ALL");
-		} else if (option === "2") {
-			// select file
-			fs.readdir(fileDirectory, (err, files) => {
-				if (err) {
-					console.error(err);
-					return;
-				}
+	fs.readdir(fileDirectory, (err, f) => {
+		if (err) {
+			console.error(err);
+			return;
+		}
+		files = f;
+	});
+
+	rl.question(
+		"Select an option:\n1. Upload all files\n2. Select file\n",
+		async (option: string) => {
+			// all files
+			if (option === "1") {
+				console.log("uploading all files...");
+
+				// select a file
+			} else if (option === "2") {
+				// print files
 				console.log("select a file.");
 				files.forEach((file, index) => {
 					console.log(`${index + 1}. ${file}`);
 				});
-				rl.question("Which file do you want to upload?", async (number: string) => {
-					const selectedFile = files[Number(number) - 1];
-					console.log(`uploading ${selectedFile}...`);
-					files.push(selectedFile);
-					try {
-						const postData = getPostDataFromFile(selectedFile);
-						const confirmation = await uploadPost(postData);
-						console.log(`uploaded ${confirmation.title}`);
-						try {
-							await prisma.$disconnect();
-						} catch (e) {
-							console.error(e);
-						} finally {
-							process.exit();
-						}
-					} catch (e) {
-						console.error(e);
-					}
+
+				// get user's selection
+				const number = await new Promise((resolve) => {
+					rl.question("Which file do you want to upload?", (number: string) => {
+						resolve(number);
+					});
 				});
+				const selectedFile = files[Number(number) - 1];
+				console.log(`uploading ${selectedFile}...`);
+				files = files.filter((file) => file === selectedFile);
+			}
+			files.forEach(async (file) => {
+				try {
+					const postData = getPostDataFromFile(file);
+					const confirmation = await uploadPost(postData);
+					console.log(`uploaded ${confirmation.title}`);
+				} catch (error) {
+					console.error(error);
+				} finally {
+					process.exit();
+				}
 			});
 		}
-	});
+	);
 }
 
 main()
