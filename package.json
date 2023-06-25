@@ -11,7 +11,10 @@
 		"build": "prisma generate && prisma migrate deploy && next build",
 		"start": "next start",
 		"lint": "next lint",
-		"upload": "ts-node src/scripts/posting.ts"
+		"upload": "ts-node src/scripts/uploader.ts"
+	},
+	"_moduleAliases": {
+		"@": "./src"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.14",
@@ -26,6 +29,7 @@
 		"eslint-config-next": "13.4.2",
 		"framer-motion": "^10.12.16",
 		"gray-matter": "^4.0.3",
+		"module-alias": "^2.2.3",
 		"next": "13.4.2",
 		"postcss": "8.4.23",
 		"postgres": "^3.3.5",

@@ -8,7 +8,7 @@ function createSlug(title: string): string {
 	let slug = "";
 	const words = title.split(" ");
 	for (let index = 0; index < words.length; index++) {
-		slug += words[index];
+		slug += words[index].toLowerCase().replace(/[^0-9a-z]/g, "");
 		if (index !== words.length - 1) {
 			slug += "-";
 		}
@@ -37,7 +37,7 @@ type MarkdownPost = {
 	category: string;
 };
 
-async function uploadPost(post: MarkdownPost) {
+export async function uploadPost(post: MarkdownPost) {
 	// create required fields
 	const slug = createSlug(post.title);
 	const category = await findOrCreateCategory(post.category);
@@ -60,10 +60,8 @@ async function uploadPost(post: MarkdownPost) {
 	return createPost;
 }
 
-function getPostDataFromFile(file: string): MarkdownPost {
-	const fileDirectory = path.join(process.cwd(), "_uploads", file);
-
-	const fileData = fs.readFileSync(fileDirectory, "utf8");
+function readFile(filePath: string): MarkdownPost {
+	const fileData = fs.readFileSync(filePath, "utf8");
 	const { data, content } = matter(fileData);
 	const { title, description, category, coverImage } = data;
 	return {
@@ -75,18 +73,18 @@ function getPostDataFromFile(file: string): MarkdownPost {
 	};
 }
 
-async function main() {
-	const postData = getPostDataFromFile("javascript.md");
-	const confirmation = await uploadPost(postData);
-	console.log(confirmation);
+export function getPostDataFromFile(file: string): MarkdownPost {
+	const filePath = path.join(process.cwd(), "_uploads", file);
+	return readFile(filePath);
 }
 
-main()
-	.then(async () => {
-		await prisma.$disconnect();
-	})
-	.catch(async (e) => {
-		console.error(e);
-		await prisma.$disconnect();
-		process.exit(1);
-	});
+export function getPostDataFromFiles(): MarkdownPost[] {
+	const fileDirectory = path.join(process.cwd(), "_uploads");
+	const files = fs.readdirSync(fileDirectory, "utf8");
+	const markdownPostArray = [];
+	for (const file in files) {
+		const fullFilePath = path.join(fileDirectory, file);
+		markdownPostArray.push(readFile(fullFilePath));
+	}
+	return markdownPostArray;
+}

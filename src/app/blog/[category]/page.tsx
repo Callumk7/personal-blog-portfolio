@@ -1,6 +1,6 @@
 import PostCardView from "@/components/posts/PostCardView";
 import TagFilter from "@/components/tag-filter/TagFilter";
-import { getAllCategories } from "@/lib/categories";
+import { getAllCategories } from "@/util";
 import prisma from "@/db/client";
 
 export async function generateStaticParams() {

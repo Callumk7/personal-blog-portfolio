@@ -1,6 +1,7 @@
 import TagFilter from "@/components/tag-filter/TagFilter";
-import { getAllCategories } from "@/lib/categories";
 import PostCardView from "@/components/posts/PostCardView";
+import { getAllCategories } from "@/util";
+
 import prisma from "@/db/client";
 import { Post } from "@prisma/client";
 
