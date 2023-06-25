@@ -1,19 +1,32 @@
 import { getAllPostFrontmatter, getPostData } from "@/util/posts";
 import ReactMarkdown from "react-markdown";
+import prisma from "../../../../../prisma/client";
+
+export const revalidate = 60;
 
 // generate routes at build time
 export async function generateStaticParams() {
-	const posts = getAllPostFrontmatter();
-
-	return posts.map((post) => {
-		return {
-			slug: post.slug,
-		};
+	const posts = await prisma.post.findMany({
+		select: {
+			slug: true,
+		},
 	});
+
+	return posts.map((post) => ({
+		slug: post.slug,
+	}));
 }
 
 export default async function BlogPage({ params }: { params: { slug: string } }) {
-	const post = getPostData(params.slug);
+	const post = await prisma.post.findUnique({
+		where: {
+			slug: params.slug,
+		},
+	});
+
+	if (!post) {
+		return <div>Post not found</div>;
+	}
 
 	return (
 		<div className="mt-80">
