@@ -4,6 +4,14 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 
+type MarkdownPost = {
+	title: string;
+	content: string;
+	coverImage: string;
+	description: string;
+	category: string;
+};
+
 function createSlug(title: string): string {
 	let slug = "";
 	const words = title.split(" ");
@@ -28,14 +36,6 @@ async function findOrCreateCategory(category: string) {
 	});
 	return upsertCategory;
 }
-
-type MarkdownPost = {
-	title: string;
-	content: string;
-	coverImage: string;
-	description: string;
-	category: string;
-};
 
 export async function uploadPost(post: MarkdownPost) {
 	// create required fields
@@ -63,7 +63,13 @@ export async function uploadPost(post: MarkdownPost) {
 function readFile(filePath: string): MarkdownPost {
 	const fileData = fs.readFileSync(filePath, "utf8");
 	const { data, content } = matter(fileData);
+	if (!content || !data) {
+		throw new Error("File missing required content");
+	}
 	const { title, description, category, coverImage } = data;
+	if (!title || !description || !category || !coverImage) {
+		throw new Error("A required field is missing");
+	}
 	return {
 		title,
 		description,
@@ -74,17 +80,25 @@ function readFile(filePath: string): MarkdownPost {
 }
 
 export function getPostDataFromFile(file: string): MarkdownPost {
-	const filePath = path.join(process.cwd(), "_uploads", file);
-	return readFile(filePath);
+	const filePath = path.join(process.cwd(), "uploads", file);
+	try {
+		return readFile(filePath);
+	} catch (e) {
+		throw new Error(`Error reading file: ${(e as Error).message}`);
+	}
 }
 
 export function getPostDataFromFiles(): MarkdownPost[] {
-	const fileDirectory = path.join(process.cwd(), "_uploads");
+	const fileDirectory = path.join(process.cwd(), "uploads");
 	const files = fs.readdirSync(fileDirectory, "utf8");
 	const markdownPostArray = [];
 	for (const file in files) {
-		const fullFilePath = path.join(fileDirectory, file);
-		markdownPostArray.push(readFile(fullFilePath));
+		try {
+			const fullFilePath = path.join(fileDirectory, file);
+			markdownPostArray.push(readFile(fullFilePath));
+		} catch (e) {
+			throw new Error(`Error reading file: ${(e as Error).message}`);
+		}
 	}
 	return markdownPostArray;
 }
