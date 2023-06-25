@@ -1,8 +1,7 @@
 import PostCardView from "@/components/posts/PostCardView";
 import TagFilter from "@/components/tag-filter/TagFilter";
 import { getAllCategories } from "@/lib/categories";
-import { getPostsByCategory } from "@/util/posts";
-import prisma from "../../../../prisma/client";
+import prisma from "@/db/client";
 
 export async function generateStaticParams() {
 	const categories = await getAllCategories();

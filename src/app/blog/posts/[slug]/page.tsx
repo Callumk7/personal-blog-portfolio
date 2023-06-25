@@ -1,6 +1,5 @@
-import { getAllPostFrontmatter, getPostData } from "@/util/posts";
 import ReactMarkdown from "react-markdown";
-import prisma from "../../../../../prisma/client";
+import prisma from "@/db/client";
 
 export const revalidate = 60;
 
