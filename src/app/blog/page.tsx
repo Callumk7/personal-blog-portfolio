@@ -2,9 +2,11 @@ import { getRecentPostFrontmatter } from "@/util/posts";
 import TagFilter from "@/components/tag-filter/TagFilter";
 import { getAllCategories } from "@/lib/categories";
 import PostCardView from "@/components/posts/PostCardView";
+import prisma from "../../../prisma/client";
+import { Post } from "@prisma/client";
 
 export default async function BlogPage() {
-	const posts = getRecentPostFrontmatter(8);
+	const posts: Post[] = await prisma.post.findMany();
 	const categories = await getAllCategories();
 
 	return (
