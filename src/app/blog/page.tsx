@@ -7,7 +7,10 @@ import { Post } from "@prisma/client";
 
 export default async function BlogPage() {
 	const posts: Post[] = await prisma.post.findMany();
-	const categories = await getAllCategories();
+	const categories = await getAllCategories().then((res) => {
+		console.log("got categories");
+		return res;
+	});
 
 	return (
 		<main className=" mb-24 px-8 md:w-2/3 lg:w-3/4 xl:w-2/3">
