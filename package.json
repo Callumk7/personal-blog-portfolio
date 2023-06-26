@@ -11,7 +11,10 @@
 		"build": "prisma generate && prisma migrate deploy && next build",
 		"start": "next start",
 		"lint": "next lint",
-		"upload": "ts-node src/scripts/posting.ts"
+		"upload": "ts-node src/scripts/uploader.ts"
+	},
+	"_moduleAliases": {
+		"@": "./src"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.14",
@@ -26,9 +29,11 @@
 		"eslint-config-next": "13.4.2",
 		"framer-motion": "^10.12.16",
 		"gray-matter": "^4.0.3",
+		"module-alias": "^2.2.3",
 		"next": "13.4.2",
 		"postcss": "8.4.23",
 		"postgres": "^3.3.5",
+		"prompts": "^2.4.2",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-markdown": "^8.0.7",
@@ -38,6 +43,7 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.9",
+		"@types/prompts": "^2.4.4",
 		"@types/react-syntax-highlighter": "^15.5.6",
 		"eslint-config-prettier": "^8.8.0",
 		"prettier": "^2.8.8",

@@ -1,8 +1,8 @@
-import { getRecentPostFrontmatter } from "@/util/posts";
 import TagFilter from "@/components/tag-filter/TagFilter";
-import { getAllCategories } from "@/lib/categories";
 import PostCardView from "@/components/posts/PostCardView";
-import prisma from "../../../prisma/client";
+import { getAllCategories } from "@/util";
+
+import prisma from "@/db/client";
 import { Post } from "@prisma/client";
 
 export default async function BlogPage() {
