@@ -4,6 +4,8 @@ import { getPostDataFromFile, uploadPost } from "../lib/postUploads";
 import fs from "fs";
 import path from "path";
 import readline from "readline";
+import { Post } from "@prisma/client";
+import prompts from "prompts";
 
 const rl = readline.createInterface({
 	input: process.stdin,
@@ -13,6 +15,19 @@ const rl = readline.createInterface({
 const fileDirectory = path.join(process.cwd(), "uploads");
 
 async function main() {
+	// async fetch the existing posts
+	let uploadedPosts: Post[];
+	prisma.post
+		.findMany()
+		.then((result) => {
+			console.log("fetched posts");
+			uploadedPosts = result;
+		})
+		.catch((error) => {
+			console.log("error fetching posts");
+			console.error(error);
+		});
+
 	let files: string[];
 	fs.readdir(fileDirectory, (err, f) => {
 		if (err) {
@@ -28,6 +43,7 @@ async function main() {
 			// all files
 			if (option === "1") {
 				console.log("uploading all files...");
+				console.log(uploadedPosts[1].title);
 
 				// select a file
 			} else if (option === "2") {
@@ -53,9 +69,7 @@ async function main() {
 					const confirmation = await uploadPost(postData);
 					console.log(`uploaded ${confirmation.title}`);
 				} catch (error) {
-					console.error(error);
-				} finally {
-					process.exit();
+					console.error((error as Error).message);
 				}
 			});
 		}

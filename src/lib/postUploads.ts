@@ -56,8 +56,13 @@ export async function uploadPost(post: MarkdownPost) {
 		},
 	};
 
-	const createPost = await prisma.post.create({ data: postToUpload });
-	return createPost;
+	try {
+		const createPost = await prisma.post.create({ data: postToUpload });
+		return createPost;
+	} catch (e) {
+		console.log(`error uploading ${postToUpload.title}`);
+		throw new Error("error!!!!!");
+	}
 }
 
 function readFile(filePath: string): MarkdownPost {
