@@ -1,26 +1,30 @@
 import "module-alias/register";
-import prisma from "@/db/client";
-import { getPostDataFromFile, uploadPost } from "../lib/postUploads";
+
 import fs from "fs";
 import path from "path";
-import readline from "readline";
-import { Post } from "@prisma/client";
+
 import prompts from "prompts";
 
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-});
+import prisma from "@/db/client";
+import { Post } from "@prisma/client";
 
+import { getPostDataFromFile, uploadPost } from "../lib/postUploads";
+
+// initialise variables...
 const fileDirectory = path.join(process.cwd(), "uploads");
+let uploadedPosts: Post[];
+let files: string[];
+let fileChoices: { title: string; value: number }[] = [];
 
 async function main() {
+	const onCancel = () => {
+		process.exit();
+	};
 	// async fetch the existing posts
-	let uploadedPosts: Post[];
+	// getting this out the way while waiting for input
 	prisma.post
 		.findMany()
 		.then((result) => {
-			console.log("fetched posts");
 			uploadedPosts = result;
 		})
 		.catch((error) => {
@@ -28,52 +32,74 @@ async function main() {
 			console.error(error);
 		});
 
-	let files: string[];
+	// read the files in the upload directory
+	// getting this out the way while waiting for input
 	fs.readdir(fileDirectory, (err, f) => {
 		if (err) {
 			console.error(err);
 			return;
 		}
+		// populate files variable
 		files = f;
+		f.forEach((file, index) => {
+			// create multiselect options
+			fileChoices.push({
+				title: file,
+				value: index,
+			});
+		});
 	});
 
-	rl.question(
-		"Select an option:\n1. Upload all files\n2. Select file\n",
-		async (option: string) => {
-			// all files
-			if (option === "1") {
-				console.log("uploading all files...");
-				console.log(uploadedPosts[1].title);
+	// using an async function here to ensure that the upload
+	// waits for a correctly populated files variable, as per
+	// the user's choices
+	async function selection() {
+		const response = await prompts(
+			{
+				type: "select",
+				name: "value",
+				message: "What do you want to upload?",
+				choices: [
+					{ title: "All files", value: 1 },
+					{ title: "Select files", value: 2 },
+				],
+			},
+			{ onCancel }
+		);
 
-				// select a file
-			} else if (option === "2") {
-				// print files
-				console.log("select a file.");
-				files.forEach((file, index) => {
-					console.log(`${index + 1}. ${file}`);
-				});
+		// single file...
+		if (response.value === 2) {
+			const selectFileResponse = await prompts(
+				{
+					type: "multiselect",
+					name: "file",
+					message: "Which file do you want to upload?",
+					choices: fileChoices,
+					hint: "- Space to select. Return to submit",
+					instructions: false,
+				},
+				{ onCancel }
+			);
 
-				// get user's selection
-				const number = await new Promise((resolve) => {
-					rl.question("Which file do you want to upload?", (number: string) => {
-						resolve(number);
-					});
-				});
-				const selectedFile = files[Number(number) - 1];
-				console.log(`uploading ${selectedFile}...`);
-				files = files.filter((file) => file === selectedFile);
-			}
-			files.forEach(async (file) => {
-				try {
-					const postData = getPostDataFromFile(file);
-					const confirmation = await uploadPost(postData);
-					console.log(`uploaded ${confirmation.title}`);
-				} catch (error) {
-					console.error((error as Error).message);
-				}
-			});
+			files = files.filter((_file, index) => selectFileResponse.file.includes(index));
 		}
-	);
+
+		// attempt to upload the contents of files.
+		for (const file of files) {
+			try {
+				const postData = getPostDataFromFile(file);
+				if (uploadedPosts.some((post) => post.title.includes(postData.title))) {
+					console.log(`Looks like ${postData.title} already exists in the database!`);
+					continue;
+				}
+				const uploadedFile = await uploadPost(postData);
+				console.log(`uploaded ${uploadedFile.title}`);
+			} catch (error) {
+				console.error((error as Error).message);
+			}
+		}
+	}
+	selection();
 }
 
 main()
