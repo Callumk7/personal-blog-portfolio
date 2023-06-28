@@ -1,101 +1,69 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [
-		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-	],
-	theme: {
-		extend: {
-			fontFamily: {
-				sans: ["var(--font-figtree)"],
-				grotesk: ["var(--font-space-grotesk)"],
-				syne: ["var(--font-syne)"],
-			},
-			fontSize: {
-				title: "8rem",
-			},
-			colors: {
-				primary: "var(--color-primary)",
-				secondary: "var(--color-secondary)",
-				tertiary: "var(--color-tertiary)",
-				deluge: {
-					50: "#F8F5FA",
-					100: "#F4EDF7",
-					200: "#DFCFE8",
-					300: "#CCB4DB",
-					400: "#A686C2",
-					500: "#7D5BA6",
-					600: "#6C4B96",
-					700: "#51337D",
-					800: "#392163",
-					900: "#25124A",
-					950: "#130830",
-				},
-				carnation: {
-					50: "#FFF7FB",
-					100: "#FFF0F7",
-					200: "#FFD9E9",
-					300: "#FFC2D7",
-					400: "#FC92A9",
-					500: "#FC6471",
-					600: "#E3525E",
-					700: "#BD3941",
-					800: "#96242C",
-					900: "#73151B",
-					950: "#4A090C",
-				},
-				alto: {
-					50: "#FCFCFC",
-					100: "#FCFCFC",
-					200: "#F7F7F7",
-					300: "#F2F2F2",
-					400: "#E8E8E8",
-					500: "#DDDDDD",
-					600: "#C7B3B3",
-					700: "#A67C7C",
-					800: "#855050",
-					900: "#632D2D",
-					950: "#401212",
-				},
-				turquoise: {
-					50: "#F5FCFC",
-					100: "#EBFAF8",
-					200: "#D0F5F1",
-					300: "#B6F0E8",
-					400: "#84E3D5",
-					500: "#55D6BE",
-					600: "#46C2A7",
-					700: "#30A181",
-					800: "#1F805E",
-					900: "#116141",
-					950: "#073D24",
-				},
-				"magic-mint": {
-					50: "#FAFFFE",
-					100: "#F7FFFD",
-					200: "#EBFFFA",
-					300: "#DEFFF5",
-					400: "#C5FCE8",
-					500: "#ACFCD9",
-					600: "#8AE3BA",
-					700: "#60BD8E",
-					800: "#3E9666",
-					900: "#247345",
-					950: "#0F4A24",
-				},
-			},
-			keyframes: {
-				"gradient-pulse": {
-					from: { opacity: 0.1 },
-					to: { opacity: 0.8 },
-				},
-			},
-			animation: {
-				"gradient-fade": "gradient-pulse 7s ease-in-out alternate infinite",
-				"gradient-fade-reverse": "gradient-pulse 7s ease-in-out alternate-reverse infinite",
-			},
-		},
-	},
-	plugins: [require("@tailwindcss/typography")],
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-figtree)"],
+        grotesk: ["var(--font-space-grotesk)"],
+        syne: ["var(--font-syne)"],
+      },
+      fontSize: {
+        title: "6rem",
+      },
+      colors: {
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        tertiary: "var(--color-tertiary)",
+        background: {
+          light: "#aaa49e",
+          dark: "#33312e",
+        },
+        warning: "var(--color-burnt-sienna)",
+        success: "var(--color-persian-green)",
+        dune: {
+          50: "#f7f7f6",
+          100: "#e5e4e2",
+          200: "#cbc8c4",
+          300: "#aaa49e",
+          400: "#888179",
+          500: "#6d665f",
+          600: "#56514b",
+          700: "#47433e",
+          800: "#3b3834",
+          900: "#33312e", // jet
+          950: "#1b1a18",
+        },
+        eminence: {
+          50: "#faf6fe",
+          100: "#f3eafd",
+          200: "#ead9fb",
+          300: "#dabcf6",
+          400: "#c390f0",
+          500: "#ab66e6",
+          600: "#9646d7",
+          700: "#8134bc",
+          800: "#662c91", // rebecca purple
+          900: "#59277c",
+          950: "#3c115a",
+        },
+      },
+      keyframes: {
+        "gradient-pulse": {
+          from: { opacity: 0.1 },
+          to: { opacity: 0.8 },
+        },
+      },
+      animation: {
+        "gradient-fade": "gradient-pulse 7s ease-in-out alternate infinite",
+        "gradient-fade-reverse":
+          "gradient-pulse 7s ease-in-out alternate-reverse infinite",
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
 };
