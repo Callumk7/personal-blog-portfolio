@@ -1,27 +1,2 @@
-export interface PostFrontmatter {
-  title: string;
-  slug: string;
-  date: string;
-  dateObject: Date;
-  coverImage: string;
-  description: string;
-  category: string;
-}
-
-export interface Post extends PostFrontmatter {
-  content: string;
-}
-
-export interface Upload {
-  title: string;
-  date: string;
-  coverImage: string;
-  description: string;
-  content: string;
-  category: string;
-}
-
-export interface Category {
-  id: number;
-  name: string;
-}
+import { Category, Post } from "@prisma/client";
+export type { Category, Post };
