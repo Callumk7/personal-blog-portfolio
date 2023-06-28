@@ -20,7 +20,7 @@ module.exports = {
         secondary: "var(--color-secondary)",
         tertiary: "var(--color-tertiary)",
         background: {
-          light: "#aaa49e",
+          light: "#cbc8c4",
           dark: "#33312e",
         },
         warning: "var(--color-burnt-sienna)",
