@@ -1,49 +1,63 @@
 import ReactMarkdown from "react-markdown";
 import prisma from "@/db/client";
-
-export const revalidate = 60;
+import PostSideBar from "@/components/posts/PostSideBar";
+import { Post } from "@prisma/client";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 // generate routes at build time
 export async function generateStaticParams() {
-	const posts = await prisma.post.findMany({
-		select: {
-			slug: true,
-		},
-	});
+  const posts = await prisma.post.findMany({
+    select: {
+      slug: true,
+    },
+  });
 
-	return posts.map((post) => ({
-		slug: post.slug,
-	}));
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export default async function BlogPage({ params }: { params: { slug: string } }) {
-	const post = await prisma.post.findUnique({
-		where: {
-			slug: params.slug,
-		},
-	});
+  const post = await prisma.post.findUnique({
+    where: {
+      slug: params.slug,
+    },
+    include: {
+      category: true,
+    },
+  });
 
-	if (!post) {
-		return <div>Post not found</div>;
-	}
+  if (!post) {
+    return <div>Post not found</div>;
+  }
 
-	return (
-		<div className="mt-80">
-			<div className="flex flex-col pb-20">
-				<div className="border-b border-black">
-					<h1 className="mx-auto w-11/12 pb-8 font-syne text-4xl font-bold text-zinc-900 lg:w-1/2">
-						{post.title}
-					</h1>
-				</div>
-				<div className="border-b border-l border-r border-black pb-10">
-					<ReactMarkdown className="prose prose-zinc mx-auto w-11/12 max-w-none pr-6 pt-8 prose-headings:font-syne lg:w-1/2">
-						{post.content}
-					</ReactMarkdown>
-				</div>
-				<div className="p-8">
-					<h2 className="font-syne text-xl font-bold">Related Posts</h2>
-				</div>
-			</div>
-		</div>
-	);
+  const relatedPosts: Post[] = await prisma.post.findMany({
+    where: {
+      categoryId: post.categoryId,
+    },
+  });
+
+  return (
+    <>
+      <ScrollProgress></ScrollProgress>
+      <div className="mt-80 grid grid-cols-8">
+        <div className="col-span-8 pr-10">
+          <span className="rounded-md border border-zinc-600 p-1 text-xs text-zinc-600">
+            {post.category.name}
+          </span>
+          <h1 className="mt-5 pb-10 font-syne text-3xl font-bold md:text-4xl lg:text-title lg:leading-[8rem]">
+            {post.title}
+          </h1>
+        </div>
+        <div className="col-span-6 pr-10">
+          <ReactMarkdown className="prose prose-neutral max-w-4xl prose-headings:font-syne">
+            {post.content}
+          </ReactMarkdown>
+        </div>
+        <div className="relative top-1/3 col-span-2 h-fit border">
+          <PostSideBar posts={relatedPosts} />
+        </div>
+      </div>
+    </>
+  );
 }
