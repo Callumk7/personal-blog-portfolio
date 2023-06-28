@@ -11,6 +11,18 @@ export async function getAllPosts() {
   return posts;
 }
 
+export async function getPostsByCategory(category: string) {
+  const posts = await prisma.post.findMany({
+    where: {
+      category: {
+        name: category,
+      },
+    },
+  });
+
+  return posts;
+}
+
 export async function incrementLikes(id: number, likes: number) {
   const update = await prisma.post.update({
     where: {
