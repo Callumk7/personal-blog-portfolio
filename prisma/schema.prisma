@@ -26,6 +26,7 @@ model Post {
   description String
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  Int      @default(1)
+  likes       Int      @default(0)
 }
 
 model Category {
