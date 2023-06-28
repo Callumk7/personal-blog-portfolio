@@ -14,27 +14,33 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
       <ul className="flex flex-row space-x-8">
         {isBlog ? (
           <li>
-            <Link className="text-red-500" href="/blog">
+            <Link className="font-bold text-primary" href="/blog">
               all
             </Link>
           </li>
         ) : (
           <li>
-            <Link href="/blog">all</Link>
+            <Link className="text-dune-500" href="/blog">
+              all
+            </Link>
           </li>
         )}
         {categories.map((category) => {
           if (pathname === `/blog/${category.name}`) {
             return (
               <li key={category.id}>
-                <Link className="text-red-500" href={`/blog/${category.name}`}>
+                <Link className="font-bold text-primary" href={`/blog/${category.name}`}>
                   {category.name}
                 </Link>
               </li>
             );
           }
           return (
-            <Link key={category.id} href={`/blog/${category.name}`}>
+            <Link
+              className="text-dune-500 hover:text-current transition ease-in"
+              key={category.id}
+              href={`/blog/${category.name}`}
+            >
               {category.name}
             </Link>
           );
