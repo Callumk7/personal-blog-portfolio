@@ -1,2 +1,10 @@
 import { Category, Post } from "@prisma/client";
-export type { Category, Post };
+
+enum Color {
+  RED,
+  GREEN,
+  YELLOW,
+  PURPLE,
+}
+
+export type { Category, Color, Post };
