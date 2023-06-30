@@ -1,6 +1,7 @@
 import Navigation from "@/components/navbar/Navigation";
 import "./globals.css";
 import { figtree, inconsolata, inter, karla, space_grotesk, syne } from "@/style/fonts";
+import Container from "@/components/ui/Container";
 export const metadata = {
   title: "Callum - develop, design",
   description: "Building a better web",
@@ -14,9 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="bg-background-light font-sans text-dune-900">
         <Navigation />
-        <div className="mx-auto w-4/5">
-          {children}
-        </div>
+        <Container>{children}</Container>
       </body>
     </html>
   );

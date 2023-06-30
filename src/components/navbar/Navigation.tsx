@@ -16,16 +16,16 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-30 w-full border-b border-dune-900 bg-background-light bg-opacity-20 px-4 py-4 backdrop-blur-lg">
-      <nav className="mx-auto flex w-4/5 items-center justify-between gap-x-6">
-        <ul className="hidden justify-between gap-x-6 md:flex">
+    <header className="fixed left-0 top-0 z-30 w-screen border-b border-dune-900 bg-background-light bg-opacity-20 py-4 backdrop-blur-lg">
+      <nav className="mx-auto flex w-4/5 max-w-3xl justify-between">
+        <ul className="hidden justify-between md:flex space-x-6">
           {items.map((item) => {
             if (pathname === item.link) {
               return (
                 <li key={item.name}>
                   <Link
                     href={item.link}
-                    className="px-3 font-bold text-primary transition ease-in-out  hover:text-primary"
+                    className="text-primary transition ease-in-out hover:text-primary"
                   >
                     {item.name}
                   </Link>
@@ -36,7 +36,7 @@ export default function Navigation() {
               <li key={item.name}>
                 <Link
                   href={item.link}
-                  className="text-dark px-3 transition ease-in-out  hover:text-primary"
+                  className="text-dark transition ease-in-out  hover:text-primary"
                 >
                   {item.name}
                 </Link>
