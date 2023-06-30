@@ -25,6 +25,7 @@ module.exports = {
         },
         warning: "var(--color-burnt-sienna)",
         success: "var(--color-persian-green)",
+        mindaro: "var(--mindaro)",
         dune: {
           50: "#f7f7f6",
           100: "#e5e4e2",
