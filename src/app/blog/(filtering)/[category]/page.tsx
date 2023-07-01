@@ -18,7 +18,7 @@ export default async function CategoryBlogPage({
 
   return (
     <>
-      <Header>Blog.</Header>
+      <Header>{params.category}</Header>
       <PostCardView posts={posts} />
     </>
   );
