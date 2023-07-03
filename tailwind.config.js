@@ -13,7 +13,7 @@ module.exports = {
         syne: ["var(--font-syne)"],
       },
       fontSize: {
-        title: "6rem",
+        title: "5rem",
       },
       colors: {
         primary: "var(--color-primary)",
