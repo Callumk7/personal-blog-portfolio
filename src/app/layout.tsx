@@ -14,8 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${space_grotesk.variable} ${figtree.variable} ${karla.variable} ${inconsolata.variable} ${syne.variable}`}
     >
       <body className="bg-background-light font-sans text-dune-900">
-        <Navigation />
-        <Container>{children}</Container>
+        <Container className="mb-32" intent={"wrapper"}>
+          <Navigation />
+          <Container intent={"single"}>{children}</Container>
+        </Container>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
 "use client";
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
-import Image from "next/image";
-import githubIcon from "@/../public/github.svg";
-import twitterIcon from "@/../public/twitter.svg";
 import { usePathname } from "next/navigation";
+import Container from "../ui/Container";
+import { Button } from "../ui/Button";
+import NavLink from "../ui/Link";
 
 export default function Navigation() {
   const items = [
@@ -16,83 +16,73 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed left-0 top-0 z-30 w-screen border-b border-dune-900 bg-background-light bg-opacity-20 py-4 backdrop-blur-lg">
-      <nav className="mx-auto flex w-4/5 max-w-3xl justify-between">
-        <ul className="hidden justify-between md:flex space-x-6">
-          {items.map((item) => {
-            if (pathname === item.link) {
-              return (
-                <li key={item.name}>
-                  <Link
-                    href={item.link}
-                    className="text-primary transition ease-in-out hover:text-primary"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              );
-            }
-            return (
-              <li key={item.name}>
-                <Link
-                  href={item.link}
-                  className="text-dark transition ease-in-out  hover:text-primary"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        <Disclosure as="nav" className="md:hidden">
-          <Disclosure.Button className="text-dark px-3 hover:text-primary">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="currentColor"
-                d="M3 4h18v2H3V4Zm0 7h18v2H3v-2Zm0 7h18v2H3v-2Z"
-              />
-            </svg>
-          </Disclosure.Button>
-          <Disclosure.Panel className="flex flex-col gap-y-2">
+    <header className="sticky left-0 top-0 z-30 w-screen border-b border-dune-900 bg-background-light bg-opacity-20 py-4 backdrop-blur-lg">
+      <Container intent={"single"}>
+        <nav className="flex place-items-center justify-between">
+          <ul className="hidden space-x-6 md:flex">
             {items.map((item) => {
               if (pathname === item.link) {
+                return (
+                  <li key={item.name}>
+                    <NavLink href={item.link}>{item.name}</NavLink>
+                  </li>
+                );
+              }
+              return (
+                <li key={item.name}>
+                  <NavLink
+                    href={item.link}
+                    variant={{state: "inactive"}}
+                  >
+                    {item.name}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+
+          <Disclosure as="nav" className="md:hidden">
+            <Disclosure.Button className="text-dark px-3 hover:text-primary">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="currentColor"
+                  d="M3 4h18v2H3V4Zm0 7h18v2H3v-2Zm0 7h18v2H3v-2Z"
+                />
+              </svg>
+            </Disclosure.Button>
+            <Disclosure.Panel className="flex flex-col gap-y-2">
+              {items.map((item) => {
+                if (pathname === item.link) {
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.link}
+                      className="px-3 font-bold text-primary transition ease-in-out  hover:text-primary"
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                }
                 return (
                   <Link
                     key={item.name}
                     href={item.link}
-                    className="px-3 font-bold text-primary transition ease-in-out  hover:text-primary"
+                    className="text-dark px-3 transition ease-in-out  hover:text-primary"
                   >
                     {item.name}
                   </Link>
                 );
-              }
-              return (
-                <Link
-                  key={item.name}
-                  href={item.link}
-                  className="text-dark px-3 transition ease-in-out  hover:text-primary"
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
-          </Disclosure.Panel>
-        </Disclosure>
-        <div className="flex gap-x-6">
-          <a href="https://github.com/Callumk7">
-            <Image src={githubIcon} width={32} height={32} alt="Github icon"></Image>
-          </a>
-          <a href="https://twitter.com/Calk7">
-            <Image src={twitterIcon} width={32} height={32} alt="Twitter icon"></Image>
-          </a>
-        </div>
-      </nav>
+              })}
+            </Disclosure.Panel>
+          </Disclosure>
+          <Button className="self-start md:self-center">Contact</Button>
+        </nav>
+      </Container>
     </header>
   );
 }
