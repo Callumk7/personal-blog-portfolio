@@ -81,7 +81,9 @@ async function main() {
 				{ onCancel }
 			);
 
-			files = files.filter((_file, index) => selectFileResponse.file.includes(index));
+			files = files.filter((_file, index) =>
+				selectFileResponse.file.includes(index)
+			);
 		}
 
 		// attempt to upload the contents of files.
@@ -89,7 +91,9 @@ async function main() {
 			try {
 				const postData = getPostDataFromFile(file);
 				if (uploadedPosts.some((post) => post.title.includes(postData.title))) {
-					console.log(`Looks like ${postData.title} already exists in the database!`);
+					console.log(
+						`Looks like ${postData.title} already exists in the database!`
+					);
 					continue;
 				}
 				const uploadedFile = await uploadPost(postData);

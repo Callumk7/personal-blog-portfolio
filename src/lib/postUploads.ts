@@ -29,7 +29,9 @@ async function findOrCreateCategory(category: string) {
 		where: {
 			name: category,
 		},
-		update: {},
+		update: {
+			updatedAt: new Date(),
+		},
 		create: {
 			name: category,
 		},

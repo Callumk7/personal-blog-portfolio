@@ -6,6 +6,28 @@ export async function getAllCategories() {
   return categories;
 }
 
+export async function getRecentCategories(count: number) {
+  const categories: Category[] = await prisma.category.findMany({
+    take: count,
+    orderBy: {
+      updatedAt: "asc",
+    },
+  });
+  return categories;
+}
+
+export async function getMostCategories(count: number) {
+  const categories: Category[] = await prisma.category.findMany({
+    take: count,
+    orderBy: {
+      posts: {
+        _count: "desc",
+      },
+    },
+  });
+  return categories;
+}
+
 export async function getAllPosts() {
   const posts: Post[] = await prisma.post.findMany();
   return posts;
