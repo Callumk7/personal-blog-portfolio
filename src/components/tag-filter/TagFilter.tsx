@@ -3,7 +3,7 @@
 import { Category } from "@/types";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import "./hide-sidebar.css";
+// import "./hide-sidebar.css";
 
 export default function TagFilter({ categories }: { categories: Category[] }) {
   const pathname = usePathname();
@@ -16,13 +16,19 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
         <ul className="flex flex-row space-x-8">
           {isBlog ? (
             <li>
-              <Link className="font-bold text-primary" href="/blog">
+              <Link
+                className="border-b-2 border-primary pb-1 font-bold text-primary"
+                href="/blog"
+              >
                 all
               </Link>
             </li>
           ) : (
             <li>
-              <Link className="text-dune-500" href="/blog">
+              <Link
+                className="text-dune-400 transition ease-in hover:text-current"
+                href="/blog"
+              >
                 all
               </Link>
             </li>
@@ -32,7 +38,7 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
               return (
                 <li key={category.id}>
                   <Link
-                    className="font-bold text-primary"
+                    className="border-b-2 border-primary pb-1 font-bold text-primary"
                     href={`/blog/${category.name}`}
                   >
                     {category.name}
@@ -42,7 +48,7 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
             }
             return (
               <Link
-                className="text-dune-500 transition ease-in hover:text-current"
+                className="text-dune-400 transition ease-in hover:text-current"
                 key={category.id}
                 href={`/blog/${category.name}`}
               >
