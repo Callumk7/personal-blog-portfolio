@@ -10,8 +10,8 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ["var(--font-figtree)"],
-				grotesk: ["var(--font-space-grotesk)"],
 				syne: ["var(--font-syne)"],
+				mono: ["var(--font-inconsolata)"],
 			},
 			fontSize: {
 				title: "5rem",
@@ -27,6 +27,11 @@ module.exports = {
 				},
 				warning: "var(--warning-red)",
 				success: "var(--success-green)",
+				bright: {
+					orange: "var(--coral)",
+					green: "var(--bright-green)",
+					pink: "var(--bright-pink)",
+				},
 				eminence: {
 					50: "#faf6fe",
 					100: "#f3eafd",
