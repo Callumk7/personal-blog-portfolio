@@ -5,7 +5,7 @@ import { ButtonHTMLAttributes, forwardRef } from "react";
 const button = cva("font-sans h-max", {
   variants: {
     intent: {
-      primary: "bg-gradient-to-br from-eminence-800 to-eminence-700 text-dune-100",
+      primary: "bg-gradient-to-br from-eminence-800 to-eminence-700 text-light",
       secondary: "bg-secondary",
     },
     size: {

@@ -1,19 +1,24 @@
 import { PostWithCategory } from "@/types";
 import Link from "next/link";
 import Tag from "../ui/Tag";
+import Header from "../ui/Header";
 
 export default function PostCard({ post }: { post: PostWithCategory }) {
   return (
-    <div>
-      <Link
-        href={`/blog/posts/${post.slug}`}
-        className="flex h-52 flex-col overflow-y-hidden border border-dune-900 px-2 py-5 transition ease-in hover:bg-eminence-700"
-      >
+    <Link
+      href={`/blog/posts/${post.slug}`}
+      className="flex flex-col border-t border-slate-400 px-2 py-5 transition ease-in hover:bg-slate-100 md:h-72 lg:overflow-y-hidden"
+    >
+      <div className="flex flex-row space-x-4">
         <Tag category={post.category} />
-        <p className="font-sans text-xs text-dune-400">{post.createdAt.toDateString()}</p>
-        <h2 className="py-3 font-syne text-xl font-bold">{post.title}</h2>
-        <p className="font-figtree pb-2 text-xs">{post.description}</p>
-      </Link>
-    </div>
+        <p className="font-mono text-slate-400">
+          {post.createdAt.toDateString().toUpperCase()}
+        </p>
+      </div>
+      <Header className="underline" h={2}>
+        {post.title}
+      </Header>
+      <p className="font-figtree pb-2">{post.description}</p>
+    </Link>
   );
 }

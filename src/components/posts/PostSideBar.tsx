@@ -11,20 +11,22 @@ interface PostSideBarProps {
 
 export default function PostSideBar({ posts, className }: PostSideBarProps) {
   return (
-    <div className={clsx(className, "border border-dune-900")}>
-      <h2 className="font-syne text-lg font-bold">Related Posts</h2>
+    <div className={clsx(className, "border border-slate-400")}>
+      <h2 className="pb-3 font-syne text-lg font-bold">Related Posts</h2>
       <ul className="flex flex-col space-y-4">
         {posts.map((post) => {
           return (
-            <li key={post.id}>
+            <li key={post.id} className="pb-4">
               <Link
                 href={`/blog/posts/${post.slug}`}
                 scroll={true}
-                className="pb-2 text-dune-900 hover:text-primary"
+                className="underline hover:text-primary"
               >
                 {post.title}
               </Link>
-              <p className="text-sm text-dune-800">{post.createdAt.toDateString()}</p>
+              <p className="pt-2 font-mono text-sm text-slate-600">
+                {post.createdAt.toDateString().toUpperCase()}
+              </p>
             </li>
           );
         })}

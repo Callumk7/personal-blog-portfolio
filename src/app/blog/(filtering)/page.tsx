@@ -8,7 +8,6 @@ export default async function BlogPage() {
 
   return (
     <main>
-      <Header>Blog.</Header>
       <PostCardView posts={posts} />
     </main>
   );
