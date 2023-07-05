@@ -1,14 +1,15 @@
+"use client";
+
 import { Post } from "@prisma/client";
 import clsx from "clsx";
 import Link from "next/link";
 
-export default function PostSideBar({
-  posts,
-  className,
-}: {
+interface PostSideBarProps {
   posts: Post[];
   className?: string;
-}) {
+}
+
+export default function PostSideBar({ posts, className }: PostSideBarProps) {
   return (
     <div className={clsx(className, "border border-dune-900")}>
       <h2 className="font-syne text-lg font-bold">Related Posts</h2>
@@ -19,7 +20,7 @@ export default function PostSideBar({
               <Link
                 href={`/blog/posts/${post.slug}`}
                 scroll={true}
-                className="text-dune-900 pb-2 hover:text-primary"
+                className="pb-2 text-dune-900 hover:text-primary"
               >
                 {post.title}
               </Link>
