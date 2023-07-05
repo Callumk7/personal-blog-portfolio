@@ -7,7 +7,7 @@ export default function PostCard({ post }: { post: PostWithCategory }) {
   return (
     <Link
       href={`/blog/posts/${post.slug}`}
-      className="flex h-72 flex-col overflow-y-hidden border-t border-slate-400 px-2 py-5 transition ease-in hover:bg-slate-100"
+      className="flex md:h-72 flex-col lg:overflow-y-hidden border-t border-slate-400 px-2 py-5 transition ease-in hover:bg-slate-100"
     >
       <div className="flex flex-row space-x-4">
         <Tag category={post.category} />
