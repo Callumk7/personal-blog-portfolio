@@ -1,7 +1,5 @@
 import PostCardView from "@/components/posts/PostCardView";
-import { getAllPosts, getAllPostsWithCategory } from "@/util";
-
-import Header from "@/components/ui/Header";
+import { getAllPostsWithCategory } from "@/util";
 
 export default async function BlogPage() {
   const posts = await getAllPostsWithCategory();

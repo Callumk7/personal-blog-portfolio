@@ -3,7 +3,8 @@
 import { Category } from "@/types";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-// import "./hide-sidebar.css";
+import SearchBar from "./Searchbar";
+import "./hide-sidebar.css";
 
 export default function TagFilter({ categories }: { categories: Category[] }) {
   const pathname = usePathname();
@@ -12,8 +13,8 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
 
   return (
     <nav className="scrollbar-hide max-w-full overflow-x-auto">
-      <div className="inline-block whitespace-nowrap pb-10 pt-8">
-        <ul className="flex flex-row space-x-8">
+      <div className="flex-row justify-between whitespace-nowrap pb-10 pt-8 md:flex">
+        <ul className="flex w-auto flex-row space-x-8">
           {isBlog ? (
             <li>
               <Link
@@ -57,6 +58,9 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
             );
           })}
         </ul>
+        <div className="mt-5 w-full md:mt-0 md:w-fit">
+          <SearchBar />
+        </div>
       </div>
     </nav>
   );

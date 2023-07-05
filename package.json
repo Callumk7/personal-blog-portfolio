@@ -30,6 +30,7 @@
 		"eslint-config-next": "13.4.2",
 		"framer-motion": "^10.12.16",
 		"gray-matter": "^4.0.3",
+		"jotai": "^2.2.1",
 		"module-alias": "^2.2.3",
 		"next": "^13.4.7",
 		"postcss": "8.4.23",
