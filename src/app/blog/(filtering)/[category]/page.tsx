@@ -1,5 +1,4 @@
 import PostCardView from "@/components/posts/PostCardView";
-import Header from "@/components/ui/Header";
 import { getAllCategories, getPostsByCategory } from "@/util";
 
 export async function generateStaticParams() {
@@ -16,10 +15,5 @@ export default async function CategoryBlogPage({
 }) {
   const posts = await getPostsByCategory(params.category);
 
-  return (
-    <>
-      <Header>{params.category}</Header>
-      <PostCardView posts={posts} />
-    </>
-  );
+  return <PostCardView posts={posts} />;
 }

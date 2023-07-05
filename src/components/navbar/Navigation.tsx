@@ -16,7 +16,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky left-0 top-0 z-30 w-screen border-b border-slate-900 bg-background-light bg-opacity-20 py-4 backdrop-blur-lg">
+    <header className="sticky left-0 top-0 z-30 w-screen border-b border-slate-400 bg-background-light bg-opacity-10 py-4 backdrop-blur-md">
       <Container intent={"single"}>
         <nav className="flex place-items-center justify-between">
           <ul className="hidden space-x-6 md:flex">
@@ -77,7 +77,9 @@ export default function Navigation() {
               })}
             </Disclosure.Panel>
           </Disclosure>
-          <Button className="self-start md:self-center">Contact</Button>
+          <Button variant={{ intent: "secondary" }} className="self-start md:self-center">
+            Contact
+          </Button>
         </nav>
       </Container>
     </header>

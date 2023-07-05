@@ -3,6 +3,7 @@ import prisma from "@/db/client";
 import PostSideBar from "@/components/posts/PostSideBar";
 import { Post } from "@prisma/client";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import Tag from "@/components/ui/Tag";
 
 // generate routes at build time
 export async function generateStaticParams() {
@@ -42,16 +43,19 @@ export default async function BlogPage({ params }: { params: { slug: string } })
       <ScrollProgress></ScrollProgress>
 
       <div className="mt-80">
-        <div className="pr-10">
-          <span className="rounded-md border border-slate-600 p-1 text-xs text-slate-600">
-            {post.category.name}
-          </span>
+        <div className="mb-10 border border-slate-400 p-6">
+          <div>
+            <Tag category={post.category} />
+            <span className="font-mono text-slate-500">
+              {post.createdAt.toDateString().toUpperCase()}
+            </span>
+          </div>
           <h1 className="mt-5 pb-10 font-syne text-3xl font-bold md:text-4xl lg:text-title lg:leading-[5rem]">
             {post.title}
           </h1>
         </div>
         <div className="grid grid-cols-8">
-          <ReactMarkdown className="prose prose-neutral col-span-5 mb-10 max-w-4xl prose-headings:font-syne">
+          <ReactMarkdown className="prose prose-slate col-span-5 mb-10 max-w-4xl border-l border-t border-slate-400 pl-6 pt-6 prose-headings:font-syne">
             {post.content}
           </ReactMarkdown>
           <PostSideBar

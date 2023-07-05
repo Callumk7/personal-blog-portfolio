@@ -5,7 +5,7 @@ export default function Tag({ category }: { category: Category }) {
   let bg = "";
   switch (category.color) {
     case "orange":
-      bg = "bg-tertiary";
+      bg = "bg-bright-orange";
       break;
 
     case "blue":
@@ -13,11 +13,11 @@ export default function Tag({ category }: { category: Category }) {
       break;
 
     case "mindaro":
-      bg = "bg-mindaro";
+      bg = "bg-bright-green";
       break;
 
     case "oxford":
-      bg = "bg-oxford text-light";
+      bg = "bg-dark text-light";
       break;
 
     default:
