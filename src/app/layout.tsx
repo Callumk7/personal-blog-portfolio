@@ -1,6 +1,6 @@
 import Navigation from "@/components/navbar/Navigation";
 import "./globals.css";
-import { figtree, inconsolata, inter, karla, space_grotesk, syne } from "@/style/fonts";
+import { figtree, inconsolata, inter, karla, syne } from "@/style/fonts";
 import Container from "@/components/ui/Container";
 export const metadata = {
   title: "Callum - develop, design",
