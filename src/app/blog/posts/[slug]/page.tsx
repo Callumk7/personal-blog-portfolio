@@ -43,7 +43,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 
       <div className="mt-80">
         <div className="pr-10">
-          <span className="rounded-md border border-zinc-600 p-1 text-xs text-zinc-600">
+          <span className="rounded-md border border-slate-600 p-1 text-xs text-slate-600">
             {post.category.name}
           </span>
           <h1 className="mt-5 pb-10 font-syne text-3xl font-bold md:text-4xl lg:text-title lg:leading-[5rem]">

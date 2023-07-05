@@ -9,7 +9,7 @@ export default function Tag({ category }: { category: Category }) {
       break;
 
     case "blue":
-      bg = "bg-blue-500 text-dune-100";
+      bg = "bg-blue-500 text-light";
       break;
 
     case "mindaro":
@@ -17,7 +17,7 @@ export default function Tag({ category }: { category: Category }) {
       break;
 
     case "oxford":
-      bg = "bg-oxford text-dune-100";
+      bg = "bg-oxford text-light";
       break;
 
     default:

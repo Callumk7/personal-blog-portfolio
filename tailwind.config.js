@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
 module.exports = {
 	content: [
 		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -18,28 +19,14 @@ module.exports = {
 			colors: {
 				primary: "var(--color-primary)",
 				secondary: "var(--color-secondary)",
-				tertiary: "var(--color-tertiary)",
+				dark: "var(--color-dark)",
+				light: "var(--color-white)",
 				background: {
-					light: "#cbc8c4",
-					dark: "#33312e",
+					light: colors.slate["200"],
+					dark: colors.slate["800"],
 				},
-				warning: "var(--color-burnt-sienna)",
-				success: "var(--color-persian-green)",
-				mindaro: "var(--mindaro)",
-				oxford: "var(--oxford-blue)",
-				dune: {
-					50: "#f7f7f6",
-					100: "#e5e4e2",
-					200: "#cbc8c4",
-					300: "#aaa49e",
-					400: "#888179",
-					500: "#6d665f",
-					600: "#56514b",
-					700: "#47433e",
-					800: "#3b3834",
-					900: "#33312e", // jet
-					950: "#1b1a18",
-				},
+				warning: "var(--warning-red)",
+				success: "var(--success-green)",
 				eminence: {
 					50: "#faf6fe",
 					100: "#f3eafd",

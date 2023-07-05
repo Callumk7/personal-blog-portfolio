@@ -26,7 +26,7 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
           ) : (
             <li>
               <Link
-                className="text-dune-400 transition ease-in hover:text-current"
+                className="text-slate-400 transition ease-in hover:text-current"
                 href="/blog"
               >
                 all
@@ -48,7 +48,7 @@ export default function TagFilter({ categories }: { categories: Category[] }) {
             }
             return (
               <Link
-                className="text-dune-400 transition ease-in hover:text-current"
+                className="text-slate-400 transition ease-in hover:text-current"
                 key={category.id}
                 href={`/blog/${category.name}`}
               >

@@ -16,7 +16,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky left-0 top-0 z-30 w-screen border-b border-dune-900 bg-background-light bg-opacity-20 py-4 backdrop-blur-lg">
+    <header className="sticky left-0 top-0 z-30 w-screen border-b border-slate-900 bg-background-light bg-opacity-20 py-4 backdrop-blur-lg">
       <Container intent={"single"}>
         <nav className="flex place-items-center justify-between">
           <ul className="hidden space-x-6 md:flex">
@@ -30,10 +30,7 @@ export default function Navigation() {
               }
               return (
                 <li key={item.name}>
-                  <NavLink
-                    href={item.link}
-                    variant={{state: "inactive"}}
-                  >
+                  <NavLink href={item.link} variant={{ state: "inactive" }}>
                     {item.name}
                   </NavLink>
                 </li>
@@ -42,7 +39,7 @@ export default function Navigation() {
           </ul>
 
           <Disclosure as="nav" className="md:hidden">
-            <Disclosure.Button className="text-dark px-3 hover:text-primary">
+            <Disclosure.Button className="px-3 text-dark hover:text-primary">
               <svg
                 width="24"
                 height="24"
@@ -72,7 +69,7 @@ export default function Navigation() {
                   <Link
                     key={item.name}
                     href={item.link}
-                    className="text-dark px-3 transition ease-in-out  hover:text-primary"
+                    className="px-3 text-dark transition ease-in-out  hover:text-primary"
                   >
                     {item.name}
                   </Link>
