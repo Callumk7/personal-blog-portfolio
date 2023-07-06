@@ -1,4 +1,5 @@
 import { Category, Post, Prisma } from "@prisma/client";
+import Image from "next/image";
 
 const postWithCategory = Prisma.validator<Prisma.PostArgs>()({
 	include: {
@@ -15,4 +16,10 @@ enum Color {
 	PURPLE,
 }
 
-export type { Category, Color, Post, PostWithCategory };
+interface Social {
+	name: string;
+	link: string;
+	icon: string;
+}
+
+export type { Category, Color, Post, PostWithCategory, Social };
