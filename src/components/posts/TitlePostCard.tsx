@@ -20,7 +20,7 @@ export default function TitlePostCard({ post }: { post: PostWithCategory }) {
           {post.title}
         </Header>
       </div>
-      <p className="lg:w-1/2">{post.description}</p>
+      <p className="hidden md:block lg:w-1/2">{post.description}</p>
     </Link>
   );
 }

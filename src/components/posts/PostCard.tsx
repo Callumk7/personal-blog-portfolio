@@ -18,7 +18,7 @@ export default function PostCard({ post }: { post: PostWithCategory }) {
       <Header className="underline" h={2}>
         {post.title}
       </Header>
-      <p className="font-figtree pb-2">{post.description}</p>
+      <p className="hidden pb-2 md:block">{post.description}</p>
     </Link>
   );
 }
