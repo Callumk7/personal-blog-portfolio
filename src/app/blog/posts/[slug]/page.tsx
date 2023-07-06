@@ -39,31 +39,27 @@ export default async function BlogPage({ params }: { params: { slug: string } })
   });
 
   return (
-    <>
-      <ScrollProgress></ScrollProgress>
-
-      <div className="mt-80">
-        <div className="mb-10 border border-slate-400 p-6">
-          <div>
-            <Tag category={post.category} />
-            <span className="font-mono text-slate-500">
-              {post.createdAt.toDateString().toUpperCase()}
-            </span>
-          </div>
-          <h1 className="mt-5 pb-10 font-syne text-3xl font-bold md:text-4xl lg:text-title lg:leading-[5rem]">
-            {post.title}
-          </h1>
+    <div className="mt-80">
+      <div className="hero mb-10 border border-slate-400 p-6">
+        <div>
+          <Tag category={post.category} />
+          <span className="font-mono text-slate-500">
+            {post.createdAt.toDateString().toUpperCase()}
+          </span>
         </div>
-        <div className="grid grid-cols-8">
-          <ReactMarkdown className="prose prose-slate col-span-5 mb-10 max-w-4xl border-l border-t border-slate-400 pl-6 pt-6 prose-headings:font-syne">
-            {post.content}
-          </ReactMarkdown>
-          <PostSideBar
-            posts={relatedPosts}
-            className="sticky top-1/3 col-span-3 ml-8 h-fit px-5 py-4"
-          />
-        </div>
+        <h1 className="mt-5 pb-10 font-syne text-3xl font-bold md:text-4xl lg:text-title lg:leading-[5rem]">
+          {post.title}
+        </h1>
       </div>
-    </>
+      <div className="grid-cols-8 lg:grid">
+        <ReactMarkdown className="prose prose-slate col-span-5 mb-10 max-w-4xl border-l border-t border-slate-400 pl-6 pt-6 prose-headings:font-syne">
+          {post.content}
+        </ReactMarkdown>
+        <PostSideBar
+          posts={relatedPosts}
+          className="sticky top-1/3 col-span-3 h-fit px-5 py-4 lg:ml-8"
+        />
+      </div>
+    </div>
   );
 }
