@@ -1,7 +1,8 @@
+import { Analytics } from "@vercel/analytics/react";
 import Navigation from "@/components/navbar/Navigation";
+import Container from "@/components/ui/Container";
 import "./globals.css";
 import { figtree, inconsolata, inter, karla, syne } from "@/style/fonts";
-import Container from "@/components/ui/Container";
 export const metadata = {
   title: "Callum - develop, design",
   description: "Building a better web",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navigation />
           <Container intent={"single"}>{children}</Container>
         </Container>
+        <Analytics />
       </body>
     </html>
   );
