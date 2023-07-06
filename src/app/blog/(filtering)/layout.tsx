@@ -2,7 +2,6 @@ import TagFilter from "@/components/tag-filter/TagFilter";
 import Header from "@/components/ui/Header";
 import { Category } from "@/types";
 import { getRecentCategories } from "@/util";
-import './hero.css'
 
 export default async function BlogLayout({ children }: { children: React.ReactNode }) {
   const categories: Category[] = await getRecentCategories(4);
