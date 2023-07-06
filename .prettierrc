@@ -1,5 +1,14 @@
 {
-  "printWidth": 100,
-  "useTabs": true,
-  "tabWidth": 4
+	"printWidth": 90,
+	"useTabs": true,
+	"tabWidth": 4,
+	"overrides": [
+		{
+			"files": ["*.jsx", "*.tsx"],
+			"options": {
+				"tabWidth": 2,
+				"useTabs": false
+			}
+		}
+	]
 }

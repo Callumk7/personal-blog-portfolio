@@ -1,22 +1,25 @@
-export interface PostFrontmatter {
-	title: string;
-	slug: string;
-	date: string;
-	dateObject: Date;
-	coverImage: string;
-	description: string;
-	tags?: string[];
+import { Category, Post, Prisma } from "@prisma/client";
+import Image from "next/image";
+
+const postWithCategory = Prisma.validator<Prisma.PostArgs>()({
+	include: {
+		category: true,
+	},
+});
+
+type PostWithCategory = Prisma.PostGetPayload<typeof postWithCategory>;
+
+enum Color {
+	RED,
+	GREEN,
+	YELLOW,
+	PURPLE,
 }
 
-export interface Post extends PostFrontmatter {
-	content: string;
+interface Social {
+	name: string;
+	link: string;
+	icon: string;
 }
 
-export interface Upload {
-	title: string;
-	date: string;
-	coverImage: string;
-	description: string;
-	tags?: string[];
-	content: string;
-}
+export type { Category, Color, Post, PostWithCategory, Social };
