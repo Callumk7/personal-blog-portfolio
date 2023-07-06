@@ -10,7 +10,6 @@ export default function Navigation() {
   const items = [
     { name: "Home", link: "/" },
     { name: "Blog", link: "/blog" },
-    { name: "Projects", link: "/projects" },
   ];
 
   const pathname = usePathname();
@@ -19,7 +18,7 @@ export default function Navigation() {
     <header className="sticky left-0 top-0 z-30 w-screen border-b border-slate-400 bg-background-light bg-opacity-10 py-4 backdrop-blur-md">
       <Container intent={"single"}>
         <nav className="flex place-items-center justify-between">
-          <ul className="hidden space-x-6 md:flex">
+          <ul className="hidden space-x-14 md:flex">
             {items.map((item) => {
               if (pathname === item.link) {
                 return (
@@ -77,7 +76,7 @@ export default function Navigation() {
               })}
             </Disclosure.Panel>
           </Disclosure>
-          <Button variant={{ intent: "secondary" }} className="self-start md:self-center">
+          <Button variant={{ intent: "primary" }} className="self-start md:self-center">
             Contact
           </Button>
         </nav>
