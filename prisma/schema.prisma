@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -16,23 +16,53 @@ model Test {
 }
 
 model Post {
-  id          Int      @id @default(autoincrement())
-  title       String   @unique
+  id          Int               @id @default(autoincrement())
+  title       String            @unique
   content     String
-  slug        String   @unique
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  slug        String            @unique
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
   coverImage  String
   description String
-  category    Category @relation(fields: [categoryId], references: [id])
-  categoryId  Int      @default(1)
-  likes       Int      @default(0)
+  category    Category          @relation(fields: [categoryId], references: [id])
+  categoryId  Int               @default(1)
+  likes       Int               @default(0)
+  projects    PostsOnProjects[]
 }
 
 model Category {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
   posts     Post[]
-  color     String   @default("none")
-  updatedAt DateTime @default(now()) @updatedAt
+  projects  Project[]
+  color     String    @default("none")
+  updatedAt DateTime  @default(now()) @updatedAt
+}
+
+model Project {
+  id          Int               @id @default(autoincrement())
+  title       String            @unique
+  description String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  coverImage  String?
+  categoryId  Int               @default(20)
+  category    Category          @relation(fields: [categoryId], references: [id])
+  posts       PostsOnProjects[]
+}
+
+model PostsOnProjects {
+  projectId Int
+  postId    Int
+  project   Project @relation(fields: [projectId], references: [id])
+  post      Post    @relation(fields: [postId], references: [id])
+
+  @@id([projectId, postId])
+}
+
+model Message {
+  id      Int    @id @default(autoincrement())
+  name    String
+  email   String
+  message String
 }
