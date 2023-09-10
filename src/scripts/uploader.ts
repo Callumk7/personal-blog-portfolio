@@ -5,10 +5,10 @@ import path from "path";
 
 import prompts from "prompts";
 
-import prisma from "@/db/client";
 import { Post } from "@prisma/client";
 
 import { getPostDataFromFile, uploadPost } from "@/lib/postUploads";
+import { prisma } from "@/lib/clients/prisma";
 
 // initialise variables...
 const fileDirectory = path.join(process.cwd(), "uploads");

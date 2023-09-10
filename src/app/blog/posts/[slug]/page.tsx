@@ -1,9 +1,9 @@
 import ReactMarkdown from "react-markdown";
-import prisma from "@/db/client";
 import PostSideBar from "@/components/posts/PostSideBar";
 import { Post } from "@prisma/client";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import Tag from "@/components/ui/Tag";
+import { prisma } from "@/lib/clients/prisma";
 
 // generate routes at build time
 export async function generateStaticParams() {

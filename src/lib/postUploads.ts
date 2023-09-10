@@ -1,8 +1,8 @@
 import { Prisma } from "@prisma/client";
-import prisma from "@/db/client";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import { prisma } from "./clients/prisma";
 
 type MarkdownPost = {
 	title: string;
