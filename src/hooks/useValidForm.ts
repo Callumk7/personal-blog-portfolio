@@ -1,3 +1,4 @@
+import { SubmitType, schema } from "@/types/messages";
 import { ChangeEventHandler, FormEventHandler, useState } from "react";
 import { ZodError, z } from "zod";
 
@@ -16,14 +17,6 @@ type ErrorsType = {
 	} | null;
 };
 
-const schema = z.object({
-	name: z.string().min(2).max(30),
-	email: z.string().email(),
-	message: z.string().min(10).max(500),
-});
-
-type SubmitType = z.infer<typeof schema>;
-
 export function useValidForm() {
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
@@ -34,22 +27,27 @@ export function useValidForm() {
 		message: null,
 	});
 
-	const handleNameChange: ChangeEventHandler<HTMLInputElement>  = (e) => {
-		const newErrorState = {...errors, name: null};
+	// state variables for condition of the fetch request
+	const [isPending, setIsPending] = useState<boolean>(false);
+	const [isResolved, setIsResolved] = useState<boolean>(false);
+	const [isError, setIsError] = useState<boolean>(false);
+
+	const handleNameChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+		const newErrorState = { ...errors, name: null };
 		setErrors(newErrorState);
 		setName(e.target.value);
-	}
+	};
 
-	const handleEmailChange: ChangeEventHandler<HTMLInputElement>  = (e) => {
-		const newErrorState = {...errors, email: null};
+	const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+		const newErrorState = { ...errors, email: null };
 		setErrors(newErrorState);
 		setEmail(e.target.value);
-	}
-	const handleMessageChange: ChangeEventHandler<HTMLTextAreaElement>  = (e) => {
-		const newErrorState = {...errors, message: null};
+	};
+	const handleMessageChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
+		const newErrorState = { ...errors, message: null };
 		setErrors(newErrorState);
 		setMessage(e.target.value);
-	}
+	};
 
 	const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
 		e.preventDefault();
@@ -62,8 +60,15 @@ export function useValidForm() {
 		};
 
 		try {
+			// begin fetch proccess
+			setIsPending(true);
+			setIsResolved(false);
+			setIsError(false);
+
+			// if inputs pass zod validation, we can proceed. Errors are passed to the catch
+			// segment below
 			const validSubmission = schema.parse(submission);
-			// if inputs pass zod validation, we can proceed
+
 			const res = await fetch("/api/messages", {
 				method: "POST",
 				headers: {
@@ -72,27 +77,35 @@ export function useValidForm() {
 				body: JSON.stringify(validSubmission),
 			});
 
-			if (res.ok) {
-				console.log("message sent");
-
-				setErrors({
-					name: null,
-					email: null,
-					message: null,
-				});
-				setMessage("");
-			} else {
-				console.log("message not sent");
+			if (!res.ok) {
+				throw new Error("Something went wrong");
 			}
+
+			console.log("message sent");
+
+			setErrors({
+				name: null,
+				email: null,
+				message: null,
+			});
+			setMessage("");
+
+			// fetch was successful
+			setIsPending(false);
+			setIsResolved(true);
+
 		} catch (err) {
+			// fetch was not successful
+			setIsPending(false);
+			setIsError(true);
+
 			if (err instanceof ZodError) {
-				// handle zod error
-				console.log("zod error");
-				console.log(err.issues);
 				let newErrors: ErrorsType = { ...errors };
 				for (const issue of err.issues) {
-					// here, we certify that the path is one of our fields, and catch any errors
-					// where this is not the case (future proof)
+					// as keyof is a typescript assertation, and so there is no guarantee that the 
+					// path is name, email, message. Whilst there is currently no possible other option,
+					// this conditional statement performs a runtime check, to catch any bugs that might
+					// crop up in the future
 					if (["name", "email", "message"].includes(String(issue.path[0]))) {
 						newErrors[String(issue.path[0]) as keyof ErrorsType] = {
 							code: issue.code,
@@ -119,5 +132,8 @@ export function useValidForm() {
 		handleMessageChange,
 		errors,
 		setErrors,
+		isPending,
+		isResolved,
+		isError
 	};
 }

@@ -81,7 +81,7 @@ export default function Navigation() {
           <Popover>
             <PopoverTrigger asChild>
               <Button
-                variant={{ intent: "primary" }}
+                intent={"primary"}
                 className="self-start md:self-center"
               >
                 Contact

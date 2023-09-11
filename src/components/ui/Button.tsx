@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
 const button = cva("font-sans h-max", {
@@ -25,19 +25,20 @@ const button = cva("font-sans h-max", {
   },
 });
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: any;
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof button> {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   props,
   ref
 ) {
-  const { className, variant, ...otherProps } = props;
+  const { className, intent, size, rounded, ...otherProps } = props;
   return (
     <button
       ref={ref}
-      className={clsx(button(variant), className)}
+      className={clsx(button({intent, size, rounded}), className)}
       {...otherProps}
     ></button>
   );
