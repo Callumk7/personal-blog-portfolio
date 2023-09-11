@@ -16,17 +16,15 @@ export function ContactForm() {
     message,
     handleMessageChange,
     errors,
+    isPending,
+    isError,
+    isResolved,
   } = useValidForm();
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full flex-col gap-y-3">
+    <form onSubmit={handleSubmit} className="flex w-full max-w-lg mx-auto flex-col gap-y-3">
       <Label htmlFor="name">Your Name</Label>
-      <Input
-        placeholder="Your Name"
-        value={name}
-        id="name"
-        onChange={handleNameChange}
-      />
+      <Input placeholder="Your Name" value={name} id="name" onChange={handleNameChange} />
       {errors.name && (
         <Label htmlFor="name" className="font-sans text-sm text-red-300">
           {errors.name.message}
@@ -48,7 +46,7 @@ export function ContactForm() {
 
       <Label htmlFor="message">Your Message</Label>
       <TextArea
-        placeholder="Your Message"
+        placeholder={isResolved ? "Message sent! Send another?" : "Your Message"}
         value={message}
         id="message"
         onChange={handleMessageChange}
@@ -58,7 +56,9 @@ export function ContactForm() {
           {errors.message.message}
         </Label>
       )}
-      <Button>Send</Button>
+      <Button intent={isPending ? "secondary" : "primary"} disabled={isPending}>
+        {isPending ? "sending.." : "Send"}
+      </Button>
     </form>
   );
 }

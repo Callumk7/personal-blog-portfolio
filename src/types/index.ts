@@ -1,5 +1,5 @@
 import { Category, Post, Prisma } from "@prisma/client";
-import Image from "next/image";
+import { z } from "zod";
 
 const postWithCategory = Prisma.validator<Prisma.PostArgs>()({
 	include: {
@@ -7,7 +7,14 @@ const postWithCategory = Prisma.validator<Prisma.PostArgs>()({
 	},
 });
 
+const projectWithCategory = Prisma.validator<Prisma.ProjectArgs>()({
+	include: {
+		category: true,
+	},
+});
+
 type PostWithCategory = Prisma.PostGetPayload<typeof postWithCategory>;
+type ProjectWithCategory = Prisma.ProjectGetPayload<typeof projectWithCategory>;
 
 enum Color {
 	RED,
@@ -22,4 +29,4 @@ interface Social {
 	icon: string;
 }
 
-export type { Category, Color, Post, PostWithCategory, Social };
+export type { Category, Color, Post, PostWithCategory, ProjectWithCategory, Social };
