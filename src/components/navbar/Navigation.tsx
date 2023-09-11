@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import Container from "../ui/Container";
 import { Button } from "../ui/Button";
 import NavLink from "../ui/Link";
+import { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from "../ui/Popover";
+import { ContactForm } from "../contact-dropdown/Form";
 
 export default function Navigation() {
   const items = [
@@ -76,9 +78,19 @@ export default function Navigation() {
               })}
             </Disclosure.Panel>
           </Disclosure>
-          <Button variant={{ intent: "primary" }} className="self-start md:self-center">
-            Contact
-          </Button>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant={{ intent: "primary" }}
+                className="self-start md:self-center"
+              >
+                Contact
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent sideOffset={24}>
+              <ContactForm />
+            </PopoverContent>
+          </Popover>
         </nav>
       </Container>
     </header>
