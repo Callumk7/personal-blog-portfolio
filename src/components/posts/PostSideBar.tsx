@@ -11,7 +11,7 @@ interface PostSideBarProps {
 
 export default function PostSideBar({ posts, className }: PostSideBarProps) {
   return (
-    <div className={clsx(className, "border border-slate-400")}>
+    <div className={clsx(className, "border border-accent")}>
       <h2 className="pb-3 font-syne text-lg font-bold">Related Posts</h2>
       <ul className="flex flex-col space-y-4">
         {posts.map((post) => {
@@ -24,7 +24,7 @@ export default function PostSideBar({ posts, className }: PostSideBarProps) {
               >
                 {post.title}
               </Link>
-              <p className="pt-2 font-mono text-sm text-slate-600">
+              <p className="pt-2 font-mono text-sm text-accent">
                 {post.createdAt.toDateString().toUpperCase()}
               </p>
             </li>

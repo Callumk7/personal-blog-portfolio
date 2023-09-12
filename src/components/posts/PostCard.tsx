@@ -7,11 +7,11 @@ export default function PostCard({ post }: { post: PostWithCategory }) {
   return (
     <Link
       href={`/blog/posts/${post.slug}`}
-      className="flex flex-col border-t border-slate-400 px-2 py-5 transition ease-in hover:bg-slate-100 md:h-72 lg:overflow-y-hidden"
+      className="flex flex-col border-t border-accent px-2 py-5 transition ease-in hover:bg-highlight md:h-72 lg:overflow-y-hidden"
     >
       <div className="flex flex-row space-x-4">
-        <Tag category={post.category} />
-        <p className="font-mono text-slate-400">
+        <Tag category={post.category} bg={post.category.color} />
+        <p className="font-mono text-muted">
           {post.createdAt.toDateString().toUpperCase()}
         </p>
       </div>

@@ -6,7 +6,7 @@ const link = cva("transition ease-in-out", {
   variants: {
     state: {
       active: "text-primary",
-      inactive: "text-dark hover:text-primary",
+      inactive: "text-foreground hover:text-primary",
     },
   },
   defaultVariants: {

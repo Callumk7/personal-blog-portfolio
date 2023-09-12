@@ -6,8 +6,8 @@ export default async function BlogPage() {
   posts.sort((a, b) => b.updatedAt.valueOf() - a.updatedAt.valueOf());
 
   return (
-    <main>
+    <div>
       <PostCardView posts={posts} />
-    </main>
+    </div>
   );
 }

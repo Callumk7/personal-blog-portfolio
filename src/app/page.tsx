@@ -1,6 +1,7 @@
 import { ContactForm } from "@/components/contact-dropdown/Form";
 import PostCardView from "@/components/posts/PostCardView";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { ProjectView } from "@/components/projects/ProjectView";
 import Header from "@/components/ui/Header";
 import { getAllProjectsWithCategory, getRecentPosts } from "@/util";
 
@@ -27,11 +28,7 @@ export default async function Home() {
         <Header className="px-2" h={1}>
           Projects
         </Header>
-        <div className="grid grid-cols-1 justify-items-stretch lg:grid-cols-2 lg:gap-x-4">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </div>
+        <ProjectView projects={projects} />
       </section>
       <section className="relative block min-h-fit h-[80vh]">
         <Header className="px-2" h={1}>
@@ -39,12 +36,12 @@ export default async function Home() {
         </Header>
         <PostCardView posts={recentPosts} />
       </section>
-      <section className="relative top-36 block h-[80vh]">
+      <section className="relative top-64 block h-[80vh]">
         <Header className="px-2" h={1}>
           About Me
         </Header>
       </section>
-      <section className="relative top-36 block h-[80vh]">
+      <section className="relative top-44 block h-[80vh]">
         <Header className="px-2" h={1}>
           Contact
         </Header>

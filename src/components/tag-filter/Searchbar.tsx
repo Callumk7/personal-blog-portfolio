@@ -13,7 +13,7 @@ export default function SearchBar() {
   };
   return (
     <input
-      className="h-10 w-full border border-slate-400 bg-transparent p-1"
+      className="h-10 w-full border border-accent text-foreground bg-transparent p-1"
       type="text"
       placeholder="Search for a post"
       onChange={handleTermChange}
