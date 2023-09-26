@@ -1,9 +1,12 @@
 import { Category } from "@prisma/client";
 import clsx from "clsx";
 
-export default function Tag({ category, bg }: { category: Category, bg: string }) {
+export default function Tag({ category }: { category: Category, bg: string }) {
+  let style = "mb-2 w-fit px-1 text-sm font-bold";
+  style += category.color;
+
   return (
-    <div className={clsx("mb-2 w-fit px-1 text-sm font-bold", bg)}>
+    <div className="mb-2 w-fit px-1 text-sm font-bold">
       {category.name.toUpperCase()}
     </div>
   );

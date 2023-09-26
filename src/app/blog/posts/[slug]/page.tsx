@@ -51,7 +51,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
         </h1>
       </div>
       <div className="grid-cols-8 lg:grid">
-        <ReactMarkdown className="prose prose-slate dark:prose-invert col-span-5 mb-10 max-w-4xl border-l border-t border-accent pl-6 pt-6 prose-headings:font-syne">
+        <ReactMarkdown className="prose prose-slate dark:prose-invert prose-code:font-mono col-span-5 mb-10 max-w-4xl border-l border-t border-accent pl-6 pt-6 prose-headings:font-syne">
           {post.content}
         </ReactMarkdown>
         <PostSideBar

@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/contact-dropdown/Form";
+import { WeatherSmall } from "@/components/contact-dropdown/weather/WeatherSmall";
 import PostCardView from "@/components/posts/PostCardView";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { ProjectView } from "@/components/projects/ProjectView";
@@ -21,7 +22,8 @@ export default async function Home() {
           <span className="underline decoration-primary underline-offset-2">
             Web Developer
           </span>{" "}
-          based in London.
+          based in London.{" ("}
+          <WeatherSmall />{")"}
         </Header>
       </section>
       <section className="relative block h-[80vh]">
@@ -30,7 +32,7 @@ export default async function Home() {
         </Header>
         <ProjectView projects={projects} />
       </section>
-      <section className="relative block min-h-fit h-[80vh]">
+      <section className="relative block h-[80vh] min-h-fit">
         <Header className="px-2" h={1}>
           Recent Posts
         </Header>

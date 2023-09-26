@@ -41,7 +41,7 @@
 			--color-foreground: var(--white-sky);
 			--color-accent: var(--slate-600);
             --color-muted: var(--slate-400);
-            --color-highlight: var(--highlight-oxford-blue);
+            --color-highlight: var(--oxford-blue);
             --color-bold: var(--highlight-oxford-blue);
             --color-bold-foreground: var(--white-sky);
 		}
