@@ -11,7 +11,7 @@ export default function TitlePostCard({ post }: { post: PostWithCategory }) {
     >
       <div>
         <div className="flex flex-row space-x-4">
-          <Tag category={post.category} bg={post.category.color} />
+          <Tag category={post.category} />
           <p className="font-mono text-muted">
             {post.createdAt.toDateString().toUpperCase()}
           </p>

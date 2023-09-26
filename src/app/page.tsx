@@ -1,7 +1,6 @@
 import { ContactForm } from "@/components/contact-dropdown/Form";
 import { WeatherSmall } from "@/components/contact-dropdown/weather/WeatherSmall";
 import PostCardView from "@/components/posts/PostCardView";
-import { ProjectCard } from "@/components/projects/ProjectCard";
 import { ProjectView } from "@/components/projects/ProjectView";
 import Header from "@/components/ui/Header";
 import { getAllProjectsWithCategory, getRecentPosts } from "@/util";

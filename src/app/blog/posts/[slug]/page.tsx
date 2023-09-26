@@ -41,7 +41,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
     <div className="mt-80">
       <div className="mb-10 border border-accent p-6">
         <div>
-          <Tag category={post.category} bg={post.category.color} />
+          <Tag category={post.category} />
           <span className="font-mono text-muted">
             {post.createdAt.toDateString().toUpperCase()}
           </span>
