@@ -16,7 +16,7 @@ export default function TitlePostCard({ post }: { post: PostWithCategory }) {
             {post.createdAt.toDateString().toUpperCase()}
           </p>
         </div>
-        <Header className="underline" h={2}>
+        <Header className="hover:underline" h={2}>
           {post.title}
         </Header>
       </div>
