@@ -1,4 +1,4 @@
-import prisma from "@/db/client";
+import { prisma } from "@/lib/clients/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(

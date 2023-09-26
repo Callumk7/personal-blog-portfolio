@@ -1,21 +1,25 @@
 "use client";
+
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "../ui/Container";
 import { Button } from "../ui/Button";
 import NavLink from "../ui/Link";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/Popover";
+import { ContactForm } from "../contact-dropdown/Form";
 
 export default function Navigation() {
   const items = [
     { name: "Home", link: "/" },
     { name: "Blog", link: "/blog" },
+    { name: "Projects", link: "/projects" },
   ];
 
   const pathname = usePathname();
 
   return (
-    <header className="sticky left-0 top-0 z-30 w-screen border-b border-slate-400 bg-background-light bg-opacity-10 py-4 backdrop-blur-md">
+    <header className="sticky left-0 top-0 z-30 w-screen border-b border-accent bg-background/20 py-4 backdrop-blur-md">
       <Container intent={"single"}>
         <nav className="flex place-items-center justify-between">
           <ul className="hidden space-x-14 md:flex">
@@ -76,9 +80,16 @@ export default function Navigation() {
               })}
             </Disclosure.Panel>
           </Disclosure>
-          <Button variant={{ intent: "primary" }} className="self-start md:self-center">
-            Contact
-          </Button>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button intent={"primary"} className="self-start md:self-center">
+                Contact
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent sideOffset={24}>
+              <ContactForm />
+            </PopoverContent>
+          </Popover>
         </nav>
       </Container>
     </header>

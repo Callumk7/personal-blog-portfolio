@@ -1,43 +1,38 @@
 import { clsx } from "clsx";
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
-const button = cva("font-sans h-max", {
+const button = cva("font-sans h-max transition ease-in", {
   variants: {
     intent: {
-      primary: "bg-primary text-light",
-      secondary: "bg-secondary",
+      primary: "bg-primary text-light hover:bg-eminence-600",
+      secondary: "bg-secondary text-dark",
     },
     size: {
       small: "text-sm py-1 px-2",
       medium: "text-base py-2 px-4",
     },
-    rounded: {
-      small: "rounded-sm",
-      medium: "rounded-md",
-      full: "rounded-full",
-    },
   },
   defaultVariants: {
     intent: "primary",
     size: "medium",
-    rounded: "medium",
   },
 });
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: any;
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof button> {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   props,
   ref
 ) {
-  const { className, variant, ...otherProps } = props;
+  const { className, intent, size, ...otherProps } = props;
   return (
     <button
       ref={ref}
-      className={clsx(button(variant), className)}
+      className={clsx(button({intent, size }), className)}
       {...otherProps}
     ></button>
   );

@@ -20,10 +20,15 @@ module.exports = {
 				primary: "var(--color-primary)",
 				secondary: "var(--color-secondary)",
 				dark: "var(--color-dark)",
-				light: "var(--color-white)",
-				background: {
-					light: colors.slate["200"],
-					dark: colors.slate["800"],
+				light: "var(--color-light)",
+				background: "var(--color-background)",
+				foreground: "var(--color-foreground)",
+				accent: "var(--color-accent)",
+				muted: "var(--color-muted)",
+				highlight: "var(--color-highlight)",
+				bold: {
+					DEFAULT: "var(--color-bold)",
+					foreground: "var(--color-bold-foreground)"
 				},
 				warning: "var(--warning-red)",
 				success: "var(--success-green)",
@@ -59,5 +64,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("@tailwindcss/typography")],
+	plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 };

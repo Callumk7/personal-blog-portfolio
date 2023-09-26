@@ -2,27 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--color-primary: var(--rebecca-purple);
-	--color-secondary: var(--burnt-sienna);
-	--color-dark: var(--oxford-blue);
-	--color-white: var(--white-sky);
+@layer base {
+	:root {
+		--white-sky: #fffbfc;
+        --slate-100: #f1f5f9;
+		--slate-200: #e2e8f0;
+        --slate-300: #cbd5e1;
+		--slate-400: #94a3b8;
+		--slate-600: #475569;
+		--oxford-blue: #0c1b33;
+        --dark-blue: #060D19;
+        --highlight-oxford-blue: #142E57;
+		--rebecca-purple: #662c91;
+		--bright-pink: #ec058e;
+		--coral: #f38d68;
+		--bright-green: #affc41;
+		--warning-red: #de503d;
+		--success-green: #62c19f;
+		--burnt-sienna: #ee6c4d;
 
-	--oxford-blue: #0c1b33;
-	--white-sky: #fffbfc;
+		--color-primary: var(--rebecca-purple);
+		--color-secondary: var(--burnt-sienna);
 
-	--rebecca-purple: #662c91;
-	--burnt-sienna: #ee6c4d;
+        --color-light: var(--white-sky);
+        --color-dark: var(--oxford-blue);
 
-	--bright-pink: #ec058e;
-	--coral: #f38d68;
-	--bright-green: #affc41;
-
-	--warning-red: #de503d;
-	--success-green: #62c19f;
-}
-
-.hero {
-	background-color: #e2e8f0;
-	background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.82' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+		--color-background: var(--slate-200);
+		--color-foreground: var(--oxford-blue);
+		--color-accent: var(--slate-400);
+        --color-muted: var(--slate-600);
+        --color-highlight: var(--slate-100);
+        --color-bold: var(--oxford-blue);
+        --color-bold-foreground: var(--white-sky);
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--color-background: var(--dark-blue);
+			--color-foreground: var(--white-sky);
+			--color-accent: var(--slate-600);
+            --color-muted: var(--slate-400);
+            --color-highlight: var(--oxford-blue);
+            --color-bold: var(--highlight-oxford-blue);
+            --color-bold-foreground: var(--white-sky);
+		}
+	}
+	.hero {
+		background-color: #e2e8f0;
+		background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.82' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+	}
 }
